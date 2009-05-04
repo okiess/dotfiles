@@ -62,5 +62,5 @@ if [ -f $HOME/.colors ]; then
   . $HOME/.colors
 fi
 
-alias reload='. ~/.bash_profile'
+alias reload='. ~/.profile'
 
