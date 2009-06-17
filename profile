@@ -76,7 +76,7 @@ function parse_git_branch {
 }
 
 # Depends on /opt/local/etc/bash_completion => port install
-export PS1="$CYAN_E\w$YELLOW_E $(parse_git_branch)$WHITE_E $\[\033[00m\] "
+export PS1="$CYAN_E\w$YELLOW_E \$(parse_git_branch)$WHITE_E $\[\033[00m\] "
 
 alias reload='. ~/.profile'
 alias edit_profile='vim ~/.profile'
