@@ -4,11 +4,7 @@ export GRAILS_HOME="/Users/oliver/bin/grails-1.0.3"
 export S3SYNC_HOME="/Users/oliver/bin/s3sync"
 export ANT_HOME="/Users/oliver/bin/apache-ant-1.7.0"
 export EC2_HOME="/Users/oliver/bin/ec2"
-# export JRUBY_HOME="/Users/oliver/bin/jruby"
-
-export EC2_PRIVATE_KEY=~/.ec2/pk-V757TIV6CBOR7EIWN4ZZSGLN5LDVIYA4.pem 
-export EC2_CERT=~/.ec2/cert-V757TIV6CBOR7EIWN4ZZSGLN5LDVIYA4.pem
-export EC2_URL=https://eu-west-1.ec2.amazonaws.com
+export JRUBY_HOME="/Users/oliver/bin/jruby"
 
 alias ll='ls -lh'
 alias la='ls -lah'
@@ -32,12 +28,16 @@ export PATH=/opt/local/bin:/opt/local/sbin:$ANT_HOME/bin:$MYSQL_HOME/bin:$GROOVY
 
 # export PATH=$JRUBY_HOME/bin:$PATH
 
-export SVN_EDITOR="vi"
+export SVN_EDITOR="vim"
 export MYSQL_SOCKET="/opt/local/var/run/mysql5/mysqld.sock"
+
+# Edge Rails
 
 function edgie() {
   ruby ~/workspace/external-versioned/rails/railties/bin/rails $1
 }
+
+# Textmate Rubygems
 
 _mategem()
 {
@@ -58,9 +58,25 @@ if [ -f $HOME/.aliases ]; then
   . $HOME/.aliases
 fi
 
+if [ -f $HOME/.project_settings ]; then
+  . $HOME/.project_settings
+fi
+
 if [ -f $HOME/.colors ]; then
   . $HOME/.colors
 fi
 
-alias reload='. ~/.profile'
+if [ -f $HOME/.amazon ]; then
+  . $HOME/.amazon
+fi
 
+# Git & Bash
+
+function parse_git_branch {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+PS1="$CYAN_E\w$YELLOW \$(parse_git_branch) $WHITE\$ "
+
+alias reload='. ~/.profile'
+alias edit_profile='vim ~/.profile'
