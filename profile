@@ -71,12 +71,12 @@ if [ -f $HOME/.amazon ]; then
 fi
 
 # Git & Bash
-
 function parse_git_branch {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
-PS1="$CYAN_E\w$YELLOW \$(parse_git_branch) $WHITE\$ "
+# Depends on /opt/local/etc/bash_completion => port install
+export PS1="$CYAN_E\w$YELLOW_E $(parse_git_branch)$WHITE_E $\[\033[00m\] "
 
 alias reload='. ~/.profile'
 alias edit_profile='vim ~/.profile'
