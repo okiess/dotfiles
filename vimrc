@@ -11,4 +11,3 @@ set ignorecase
 set history=50
 filetype plugin indent on
 colorscheme darkblue
-
