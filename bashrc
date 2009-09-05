@@ -11,8 +11,9 @@ export MAVEN_OPTS="-noverify -javaagent:~/Applications/liftweb-1.0/java-rebel/ja
 # export ARCHFLAGS="x86_64"
 
 alias dotfiles='cd ~/bin/dotfiles'
-alias ll='ls -lh'
-alias la='ls -lah'
+alias ls='ls -G'
+alias ll='ls -lhG'
+alias la='ls -lahG'
 alias pass='gpg -d ~/pass.gpg'
 alias mysql='mysql5'
 
