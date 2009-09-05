@@ -8,7 +8,7 @@ export SCALA_HOME="/opt/local/share/scala"
 export M2_HOME="~/Applications/liftweb-1.0/apache-maven"
 export M2=$M2_HOME/bin
 export MAVEN_OPTS="-noverify -javaagent:~/Applications/liftweb-1.0/java-rebel/javarebel.jar"
-export ARCHFLAGS="x86_64"
+# export ARCHFLAGS="x86_64"
 
 alias dotfiles='cd ~/bin/dotfiles'
 alias ll='ls -lh'
