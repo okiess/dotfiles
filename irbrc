@@ -9,3 +9,8 @@ Wirble.colorize
 require 'pp'
 require 'irb/completion'
 
+# Rails logger
+def ar_logger
+  ActiveRecord::Base.logger = Logger.new(STDOUT)
+end
+
