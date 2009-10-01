@@ -91,6 +91,8 @@ if [ -f $HOME/.amazon ]; then
   . $HOME/.amazon
 fi
 
+if [ -s ~/.rvm/scripts/rvm ] ; then source ~/.rvm/scripts/rvm ; fi
+
 # Git & Bash
 function parse_git_branch {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
@@ -101,3 +103,4 @@ export PS1="$CYAN_E\w$YELLOW_E \$(parse_git_branch)$WHITE_E $\[\033[00m\] "
 
 alias reload='. ~/.bashrc'
 alias edit_profile='vim ~/.bashrc'
+
