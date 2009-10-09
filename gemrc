@@ -4,6 +4,7 @@
 :update_sources: true
 gem: --no-rdoc --no-ri
 :sources: 
+- http://gemcutter.org
 - http://gems.rubyforge.org/
 - http://gems.github.com
 - http://gems.opscode.com
