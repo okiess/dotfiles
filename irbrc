@@ -15,7 +15,9 @@ def ar_logger
   ActiveRecord::Base.logger = Logger.new(STDOUT)
 end
 
-Hirb::View.enable
+def enable_hirb
+  Hirb::View.enable
+end
 
 def disable_hirb
   Hirb::View.disable
