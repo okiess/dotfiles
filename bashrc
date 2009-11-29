@@ -67,6 +67,7 @@ _mategem()
 complete -F _mategem -o dirnames mategem
 
 complete -C ~/bin/dotfiles/rake_completion -o default rake
+complete -C ~/bin/dotfiles/capistrano_completion -o default cap
 
 if [ -f /opt/local/etc/bash_completion ]; then
    . /opt/local/etc/bash_completion
