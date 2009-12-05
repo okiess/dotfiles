@@ -40,14 +40,11 @@ export SVN_EDITOR="vim"
 export EDITOR="vim"
 export MYSQL_SOCKET="/opt/local/var/run/mysql5/mysqld.sock"
 
-function take {
-	mkdir $1
-	cd $1
-}
-
-function gg {
-	git commit -v -a -m"$*"
-}
+# Ruby Parameters
+export RUBY_HEAP_MIN_SLOTS=500000
+export RUBY_HEAP_SLOTS_INCREMENT=250000
+export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
+export RUBY_GC_MALLOC_LIMIT=50000000
 
 # Edge Rails
 function edgie() {
