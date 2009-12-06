@@ -5,7 +5,6 @@ export SCALA_HOME="/opt/local/share/scala"
 export M2_HOME="~/Applications/liftweb-1.0/apache-maven"
 export M2=$M2_HOME/bin
 export MAVEN_OPTS="-noverify -javaagent:~/Applications/liftweb-1.0/java-rebel/javarebel.jar"
-# export ARCHFLAGS="x86_64"
 
 alias dotfiles='cd ~/bin/dotfiles'
 
@@ -33,8 +32,19 @@ alias gdc='git svn dcommit'
 alias gpo='git push origin master'
 alias gpob='git push origin master && git push backup master'
 
-export PATH=/opt/local/bin:/opt/local/sbin:$ANT_HOME/bin:$MYSQL_HOME/bin:$S3SYNC_HOME:$EC2_HOME/bin:$M2:$PATH
-export MANPATH=/opt/local/share/man:$MANPATH
+PORTS_SYSTEM_TO_USE=macports
+MACPORTS_PATH=/opt/local/bin:/opt/local/sbin
+HOMEBREW_PATH=~/bin/homebrew/bin
+
+if [ "$PORTS_SYSTEM_TO_USE" == "macports" ]; then
+  export PATH=$MACPORTS_PATH:$ANT_HOME/bin:$MYSQL_HOME/bin:$EC2_HOME/bin:$M2:$PATH
+fi
+
+if [ "$PORTS_SYSTEM_TO_USE" == "homebrew" ]; then
+  export PATH=$HOMEBREW_PATH:$ANT_HOME/bin:$MYSQL_HOME/bin:$EC2_HOME/bin:$M2:$PATH
+fi
+
+export MANPATH=/opt/local/share/man:~/bin/homebrew/share/man:$MANPATH
 
 export SVN_EDITOR="vim"
 export EDITOR="vim"
@@ -86,6 +96,7 @@ if [ -f $HOME/.amazon ]; then
   . $HOME/.amazon
 fi
 
+# RVM Setup
 if [ -s ~/.rvm/scripts/rvm ] ; then source ~/.rvm/scripts/rvm ; fi
 
 # Git & Bash
