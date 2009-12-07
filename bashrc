@@ -13,9 +13,7 @@ export CLICOLOR=1
 alias ls='ls -G'
 alias ll='ls -lhG'
 alias la='ls -lahG'
-
 alias pass='gpg -d ~/pass.gpg'
-alias mysql='mysql5'
 
 # Rails Aliases
 alias s='script/server'
@@ -32,16 +30,17 @@ alias gdc='git svn dcommit'
 alias gpo='git push origin master'
 alias gpob='git push origin master && git push backup master'
 
-PORTS_SYSTEM_TO_USE=macports
+PORTS_SYSTEM_TO_USE=homebrew
 MACPORTS_PATH=/opt/local/bin:/opt/local/sbin
 HOMEBREW_PATH=~/bin/homebrew/bin
+REGULAR_PATH=$ANT_HOME/bin:$EC2_HOME/bin:$M2:$PATH
 
 if [ "$PORTS_SYSTEM_TO_USE" == "macports" ]; then
-  export PATH=$MACPORTS_PATH:$ANT_HOME/bin:$MYSQL_HOME/bin:$EC2_HOME/bin:$M2:$PATH
+  export PATH=$MACPORTS_PATH:$REGULAR_PATH
 fi
 
 if [ "$PORTS_SYSTEM_TO_USE" == "homebrew" ]; then
-  export PATH=$HOMEBREW_PATH:$ANT_HOME/bin:$MYSQL_HOME/bin:$EC2_HOME/bin:$M2:$PATH
+  export PATH=$HOMEBREW_PATH:$REGULAR_PATH
 fi
 
 export MANPATH=/opt/local/share/man:~/bin/homebrew/share/man:$MANPATH
