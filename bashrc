@@ -14,6 +14,7 @@ alias ls='ls -G'
 alias ll='ls -lhG'
 alias la='ls -lahG'
 alias pass='gpg -d ~/pass.gpg'
+alias mysql='mysql5'
 
 # Rails Aliases
 alias s='script/server'
@@ -30,7 +31,7 @@ alias gdc='git svn dcommit'
 alias gpo='git push origin master'
 alias gpob='git push origin master && git push backup master'
 
-PORTS_SYSTEM_TO_USE=homebrew
+PORTS_SYSTEM_TO_USE=macports
 MACPORTS_PATH=/opt/local/bin:/opt/local/sbin
 HOMEBREW_PATH=~/bin/homebrew/bin
 REGULAR_PATH=$ANT_HOME/bin:$EC2_HOME/bin:$M2:$PATH
