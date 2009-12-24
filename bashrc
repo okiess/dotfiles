@@ -99,6 +99,9 @@ fi
 # RVM Setup
 if [ -s ~/.rvm/scripts/rvm ] ; then source ~/.rvm/scripts/rvm ; fi
 
+# Set default RVM ruby
+rvm use ree
+
 # Git & Bash
 function parse_git_branch {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
