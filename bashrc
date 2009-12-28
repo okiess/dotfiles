@@ -1,10 +1,6 @@
 export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home"
 export ANT_HOME="~/bin/apache-ant-1.7.0"
 export EC2_HOME="~/bin/ec2/ec2-api-tools"
-export SCALA_HOME="/opt/local/share/scala"
-export M2_HOME="~/Applications/liftweb-1.0/apache-maven"
-export M2=$M2_HOME/bin
-export MAVEN_OPTS="-noverify -javaagent:~/Applications/liftweb-1.0/java-rebel/javarebel.jar"
 
 alias dotfiles='cd ~/bin/dotfiles'
 
