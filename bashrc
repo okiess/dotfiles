@@ -30,7 +30,7 @@ alias gpob='git push origin master && git push backup master'
 PORTS_SYSTEM_TO_USE=macports
 MACPORTS_PATH=/opt/local/bin:/opt/local/sbin
 HOMEBREW_PATH=~/bin/homebrew/bin
-REGULAR_PATH=$ANT_HOME/bin:$EC2_HOME/bin:$M2:$PATH
+REGULAR_PATH=$ANT_HOME/bin:$EC2_HOME/bin:$PATH
 
 if [ "$PORTS_SYSTEM_TO_USE" == "macports" ]; then
   export PATH=$MACPORTS_PATH:$REGULAR_PATH
