@@ -6,15 +6,15 @@ require 'hirb'
 Wirble.init
 Wirble.colorize
 
-require 'pp'
+require 'ap'
 require 'irb/completion'
 require 'irb/ext/save-history'
 
-def enable_hirb
+def self.enable_hirb
   Hirb::View.enable
 end
 
-def disable_hirb
+def self.disable_hirb
   Hirb::View.disable
 end
 
@@ -44,16 +44,16 @@ class Object
   end
 end
 
-def change_log(stream)
+def self.change_log(stream)
   ActiveRecord::Base.logger = Logger.new(stream)
   ActiveRecord::Base.clear_active_connections!
 end
  
-def show_log
+def self.show_log
   change_log(STDOUT)
 end
  
-def hide_log
+def self.hide_log
   change_log(nil)
 end
 
