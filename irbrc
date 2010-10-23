@@ -2,6 +2,8 @@ require 'rubygems'
 require 'wirble'
 require 'hirb'
 
+puts "loading custom .irbrc..."
+
 # load wirble
 Wirble.init
 Wirble.colorize

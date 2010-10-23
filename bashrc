@@ -109,3 +109,7 @@ export PS1="$CYAN_E\w$YELLOW_E \$(parse_git_branch)$WHITE_E $\[\033[00m\] "
 alias reload='. ~/.bashrc'
 alias edit_profile='vim ~/.bashrc'
 
+function load_cinderella {
+  source ~/.cinderella.profile
+}
+
