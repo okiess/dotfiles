@@ -13,12 +13,29 @@ alias pass='gpg -d ~/pass.gpg'
 alias mysql='mysql5'
 
 # Rails Aliases
-alias s='script/server'
-alias s2='script/server -p 3001'
-alias sc='script/console'
-alias sd='script/server --debugger'
-alias u='svn up'
-alias dbu='rake db:migrate'
+function sc () {
+  if [ -f ./script/rails ]; then 
+    rails c $@
+  else
+    ./script/console $@
+  fi
+}
+
+function sd () {
+  if [ -f ./script/rails ]; then
+    rails s --debugger $@  
+  else
+    ./script/server --debugger
+  fi
+}
+
+function s () {
+  if [ -f ./script/rails ]; then 
+    rails s $@
+  else
+    ./script/server $@
+  fi
+}
 
 # Git Aliases
 alias gs='git status'
