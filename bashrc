@@ -1,5 +1,5 @@
 export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home"
-export ANT_HOME="~/bin/apache-ant-1.7.0"
+export ANT_HOME="~/bin/ant"
 export EC2_HOME="~/bin/ec2/ec2-api-tools"
 
 alias dotfiles='cd ~/bin/dotfiles'
@@ -9,7 +9,6 @@ export CLICOLOR=1
 alias ls='ls -G'
 alias ll='ls -lhG'
 alias la='ls -lahG'
-alias pass='gpg -d ~/pass.gpg'
 alias mysql='mysql5'
 
 # Rails Aliases
@@ -41,7 +40,8 @@ function s () {
 alias gs='git status'
 alias gr='git svn rebase'
 alias gdc='git svn dcommit'
-alias gpo='git push origin master'
+alias gpso='git push origin master'
+alias gplo='git pull origin master'
 alias gpob='git push origin master && git push backup master'
 
 PORTS_SYSTEM_TO_USE=macports
@@ -68,11 +68,6 @@ export RUBY_HEAP_MIN_SLOTS=500000
 export RUBY_HEAP_SLOTS_INCREMENT=250000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=50000000
-
-# Edge Rails
-function edgie() {
-  ruby ~/workspace/external-versioned/rails/railties/bin/rails $1
-}
 
 # Textmate Rubygems
 _mategem()
