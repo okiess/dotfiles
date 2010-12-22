@@ -1,7 +1,5 @@
 export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home"
 export ANT_HOME="~/bin/ant"
-export EC2_HOME="~/bin/ec2/ec2-api-tools"
-
 alias dotfiles='cd ~/bin/dotfiles'
 
 export LSCOLORS=GxGxcxdxCxegedabagacad
