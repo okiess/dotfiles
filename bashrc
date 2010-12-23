@@ -7,7 +7,6 @@ export CLICOLOR=1
 alias ls='ls -G'
 alias ll='ls -lhG'
 alias la='ls -lahG'
-alias mysql='mysql5'
 
 # Rails Aliases
 function sc () {
@@ -42,24 +41,24 @@ alias gpso='git push origin master'
 alias gplo='git pull origin master'
 alias gpob='git push origin master && git push backup master'
 
-PORTS_SYSTEM_TO_USE=macports
-MACPORTS_PATH=/opt/local/bin:/opt/local/sbin
-HOMEBREW_PATH=~/bin/homebrew/bin
-REGULAR_PATH=$ANT_HOME/bin:$EC2_HOME/bin:$PATH
+#PORTS_SYSTEM_TO_USE=macports
+#MACPORTS_PATH=/opt/local/bin:/opt/local/sbin
+#HOMEBREW_PATH=~/bin/homebrew/bin
+#REGULAR_PATH=$ANT_HOME/bin:$EC2_HOME/bin:$PATH
 
-if [ "$PORTS_SYSTEM_TO_USE" == "macports" ]; then
-  export PATH=$MACPORTS_PATH:$REGULAR_PATH
-fi
+#if [ "$PORTS_SYSTEM_TO_USE" == "macports" ]; then
+#  export PATH=$MACPORTS_PATH:$REGULAR_PATH
+#fi
 
-if [ "$PORTS_SYSTEM_TO_USE" == "homebrew" ]; then
-  export PATH=$HOMEBREW_PATH:$REGULAR_PATH
-fi
+#if [ "$PORTS_SYSTEM_TO_USE" == "homebrew" ]; then
+#  export PATH=$HOMEBREW_PATH:$REGULAR_PATH
+#fi
 
-export MANPATH=/opt/local/share/man:~/bin/homebrew/share/man:$MANPATH
+#export MANPATH=/opt/local/share/man:~/bin/homebrew/share/man:$MANPATH
 
 export SVN_EDITOR="vim"
 export EDITOR="vim"
-export MYSQL_SOCKET="/opt/local/var/run/mysql5/mysqld.sock"
+export MYSQL_SOCKET="/tmp/mysql.sock"
 
 # Ruby Parameters
 export RUBY_HEAP_MIN_SLOTS=500000
@@ -83,7 +82,7 @@ complete -C ~/bin/dotfiles/rake_completion -o default rake
 complete -C ~/bin/dotfiles/capistrano_completion -o default cap
 
 if [ -f /opt/local/etc/bash_completion ]; then
-   . /opt/local/etc/bash_completion
+   . /Users/oliver/Developer/etc/bash_completion
 fi
 
 if [ -f $HOME/.aliases ]; then
@@ -96,10 +95,6 @@ fi
 
 if [ -f $HOME/.colors ]; then
   . $HOME/.colors
-fi
-
-if [ -f $HOME/.amazon ]; then
-  . $HOME/.amazon
 fi
 
 # RVM Setup
@@ -119,7 +114,5 @@ export PS1="$CYAN_E\w$YELLOW_E \$(parse_git_branch)$WHITE_E $\[\033[00m\] "
 alias reload='. ~/.bashrc'
 alias edit_profile='vim ~/.bashrc'
 
-function load_cinderella {
-  source ~/.cinderella.profile
-}
+source ~/.cinderella.profile
 
