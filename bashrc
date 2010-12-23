@@ -82,7 +82,7 @@ complete -C ~/bin/dotfiles/rake_completion -o default rake
 complete -C ~/bin/dotfiles/capistrano_completion -o default cap
 
 if [ -f /opt/local/etc/bash_completion ]; then
-   . /Users/oliver/Developer/etc/bash_completion
+   . $HOME/Developer/etc/bash_completion
 fi
 
 if [ -f $HOME/.aliases ]; then
@@ -114,5 +114,20 @@ export PS1="$CYAN_E\w$YELLOW_E \$(parse_git_branch)$WHITE_E $\[\033[00m\] "
 alias reload='. ~/.bashrc'
 alias edit_profile='vim ~/.bashrc'
 
-source ~/.cinderella.profile
+
+# Cinderella
+
+PATH="$HOME/Developer/bin:$HOME/Developer/share/npm/bin:$HOME/Developer/sbin:$PATH"; export PATH
+MANPATH="$HOME/share/man:$MANPATH"; export MANPATH
+CFLAGS="-I$HOME/Developer/include"; export CFLAGS
+CPPFLAGS="-I$HOME/Developer/include"; export CPPFLAGS
+CXXFLAGS="-I$HOME/Developer/include"; export CXXFLAGS
+LDFLAGS="-L$HOME/Developer/lib"; export LDFLAGS
+NODE_PATH="$HOME/Developer/lib/node"; export NODE_PATH
+
+export CONFIGURE_ARGS="--with-cflags='$CFLAGS' --with-ldflags='$LDFLAGS'"
+
+if [[ -d $HOME/Developer/Cellar/python/2.7/bin ]]; then
+  export PATH=$HOME/Developer/Cellar/python/2.7/bin:$PATH
+fi
 
