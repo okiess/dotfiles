@@ -1,4 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/Users/oliver/Desktop/omnisocial_test'
 let g:netrw_dirhist_2='/Users/oliver/workspace/versioned/apphoshies'
+let g:netrw_dirhist_3='/Users/oliver/workspace/versioned/apphoshies/app'
+let g:netrw_dirhist_4='/Users/oliver/workspace/versioned/apphoshies/app/controllers'
+let g:netrw_dirhist_5='/Users/oliver/workspace/versioned/apphoshies'
+let g:netrw_dirhist_6='/Users/oliver/workspace/versioned/apphoshies/app'
+let g:netrw_dirhist_7='/Users/oliver/workspace/versioned/apphoshies/app/controllers'
