@@ -11,6 +11,11 @@ set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
+set encoding=utf-8
+"set wrap
+"set textwidth=79
+"set formatoptions=qrn1
+"set colorcolumn=85
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -75,7 +80,7 @@ set expandtab
 set laststatus=2
 
 " \ is the leader character
-let mapleader = "\\"
+let mapleader = ","
 
 " Edit the README_FOR_APP (makes :R commands work)
 map <Leader>R :e doc/README_FOR_APP<CR>
