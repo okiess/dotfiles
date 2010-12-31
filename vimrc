@@ -5,13 +5,18 @@ set nocompatible
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-set nobackup
-set nowritebackup
+"set nobackup
+"set nowritebackup
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 set encoding=utf-8
+
+"Directories for swp files
+set backupdir=~/.vim/backup
+set directory=~/.vim/backup
+
 "set wrap
 "set textwidth=79
 "set formatoptions=qrn1
@@ -59,7 +64,7 @@ if has("autocmd")
 
 else
 
-  set autoindent		" always set autoindenting on
+set autoindent		" always set autoindenting on
 
 endif " has("autocmd")
 
@@ -81,6 +86,9 @@ set laststatus=2
 
 " \ is the leader character
 let mapleader = ","
+
+" NERDTree
+"map <Leader>n :NERDTreeToggle<CR>
 
 " Edit the README_FOR_APP (makes :R commands work)
 map <Leader>R :e doc/README_FOR_APP<CR>
