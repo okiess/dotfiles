@@ -87,8 +87,7 @@ set laststatus=2
 " \ is the leader character
 let mapleader = ","
 
-" NERDTree
-"map <Leader>n :NERDTreeToggle<CR>
+map <Leader>n :Project<CR>
 
 " Edit the README_FOR_APP (makes :R commands work)
 map <Leader>R :e doc/README_FOR_APP<CR>
@@ -111,7 +110,7 @@ map <Leader>su :RSunittest
 map <Leader>sf :RSfunctionaltest 
 
 " Hide search highlighting
-map <Leader>h :set invhls <CR>
+map <Leader>h :set invhls<CR>
 
 " Opens an edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>e
@@ -125,32 +124,21 @@ map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 " Command mode: Ctrl+P
 cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
-" Maps autocomplete to tab
-imap <Tab> <C-N>
-
 " Duplicate a selection
 " Visual mode: D
 vmap D y'>p
 
-" For Haml
-au! BufRead,BufNewFile *.haml         setfiletype haml
-
 " No Help, please
 nmap <F1> <Esc>
-
-" Press ^F from insert mode to insert the current file name
-imap <C-F> <C-R>=expand("%")<CR>
 
 " Press Shift+P while in visual mode to replace the selection without
 " overwriting the default register
 vmap P p :call setreg('"', getreg('0')) <CR>
 
 " Display extra whitespace
-" set list listchars=tab:»·,trail:·
+set list listchars=tab:»·,trail:·
 
-" Edit routes
-command! Rroutes :e config/routes.rb
-command! RTroutes :tabe config/routes.rb
+imap <Tab> <C-N>
 
 " Local config
 if filereadable(".vimrc.local")
@@ -187,4 +175,5 @@ set smartcase
 
 " Tags
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
+map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 
