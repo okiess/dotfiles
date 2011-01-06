@@ -1,5 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/Users/oliver/Developer/rails-quick-start/cookbooks'
-let g:netrw_dirhist_2='/Users/oliver/Developer/rails-quick-start/cookbooks/ruby_enterprise'
-let g:netrw_dirhist_3='/Users/oliver/Developer/rails-quick-start/cookbooks/ruby_enterprise/recipes'
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/Users/oliver/Developer/base-server/cookbooks'
+let g:netrw_dirhist_2='/Users/oliver/Developer/base-server/cookbooks/ruby'
+let g:netrw_dirhist_3='/Users/oliver/Developer/base-server/cookbooks/ruby/recipes'
+let g:netrw_dirhist_4='/Users/oliver/Developer/base-server'
+let g:netrw_dirhist_5='/Users/oliver/Developer/base-server/cookbooks'
+let g:netrw_dirhist_6='/Users/oliver/Developer/base-server/cookbooks/apache2'
+let g:netrw_dirhist_7='/Users/oliver/Developer/base-server/cookbooks/apache2/recipes'

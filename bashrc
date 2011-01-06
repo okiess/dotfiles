@@ -98,10 +98,10 @@ if [ -f $HOME/.colors ]; then
 fi
 
 # RVM Setup
-if [ -s ~/.rvm/scripts/rvm ] ; then source ~/.rvm/scripts/rvm ; fi
-
-# Set default RVM ruby
-rvm use ree
+if [ -s ~/.rvm/scripts/rvm ] ; then
+  source ~/.rvm/scripts/rvm
+  rvm use ree
+fi
 
 # Git & Bash
 function parse_git_branch {
@@ -117,17 +117,18 @@ alias edit_profile='vim ~/.bashrc'
 
 # Cinderella
 
-PATH="$HOME/Developer/bin:$HOME/Developer/share/npm/bin:$HOME/Developer/sbin:$PATH"; export PATH
-MANPATH="$HOME/share/man:$MANPATH"; export MANPATH
-CFLAGS="-I$HOME/Developer/include"; export CFLAGS
-CPPFLAGS="-I$HOME/Developer/include"; export CPPFLAGS
-CXXFLAGS="-I$HOME/Developer/include"; export CXXFLAGS
-LDFLAGS="-L$HOME/Developer/lib"; export LDFLAGS
-NODE_PATH="$HOME/Developer/lib/node"; export NODE_PATH
+if [[ -d $HOME/Developer ]]; then
+  PATH="$HOME/Developer/bin:$HOME/Developer/share/npm/bin:$HOME/Developer/sbin:$PATH"; export PATH
+  MANPATH="$HOME/share/man:$MANPATH"; export MANPATH
+  CFLAGS="-I$HOME/Developer/include"; export CFLAGS
+  CPPFLAGS="-I$HOME/Developer/include"; export CPPFLAGS
+  CXXFLAGS="-I$HOME/Developer/include"; export CXXFLAGS
+  LDFLAGS="-L$HOME/Developer/lib"; export LDFLAGS
+  NODE_PATH="$HOME/Developer/lib/node"; export NODE_PATH
 
-export CONFIGURE_ARGS="--with-cflags='$CFLAGS' --with-ldflags='$LDFLAGS'"
+  export CONFIGURE_ARGS="--with-cflags='$CFLAGS' --with-ldflags='$LDFLAGS'"
 
-if [[ -d $HOME/Developer/Cellar/python/2.7/bin ]]; then
-  export PATH=$HOME/Developer/Cellar/python/2.7/bin:$PATH
+  if [[ -d $HOME/Developer/Cellar/python/2.7/bin ]]; then
+    export PATH=$HOME/Developer/Cellar/python/2.7/bin:$PATH
+  fi
 fi
-
