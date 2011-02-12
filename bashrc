@@ -33,6 +33,10 @@ function s () {
   fi
 }
 
+function rubymine() {
+  open '/Applications/RubyMine 3.0.1.app';
+}
+
 # Git Aliases
 alias gs='git status'
 alias gr='git svn rebase'
