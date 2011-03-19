@@ -4,7 +4,7 @@ SHELL = /bin/sh
 #### Start of system configuration section. ####
 
 srcdir = .
-topdir = /Users/oliver/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/i686-darwin10.4.0
+topdir = /Users/oliver/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/i686-darwin10.6.0
 hdrdir = $(topdir)
 VPATH = $(srcdir):$(topdir):$(hdrdir)
 exec_prefix = $(prefix)
@@ -47,7 +47,7 @@ RUBY_EXTCONF_H =
 CFLAGS   =  -fno-common -I/Users/oliver/Developer/include 
 INCFLAGS = -I. -I$(topdir) -I$(hdrdir) -I$(srcdir)
 DEFS     = 
-CPPFLAGS = -DHAVE_RUBY_H  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE $(DEFS) $(cppflags)
+CPPFLAGS = -DHAVE_RUBY_H -I/Users/oliver/Developer/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE $(DEFS) $(cppflags)
 CXXFLAGS = $(CFLAGS) 
 ldflags  = -L/Users/oliver/Developer/lib
 dldflags = 
@@ -59,14 +59,14 @@ EXEEXT =
 
 RUBY_INSTALL_NAME = ruby
 RUBY_SO_NAME = ruby
-arch = i686-darwin10.4.0
-sitearch = i686-darwin10.4.0
+arch = i686-darwin10.6.0
+sitearch = i686-darwin10.6.0
 ruby_version = 1.8
 ruby = /Users/oliver/.rvm/rubies/ree-1.8.7-2010.02/bin/ruby
 RUBY = $(ruby)
 RM = rm -f
 MAKEDIRS = mkdir -p
-INSTALL = /usr/bin/install -c
+INSTALL = /Users/oliver/Developer/bin/ginstall -c
 INSTALL_PROG = $(INSTALL) -m 0755
 INSTALL_DATA = $(INSTALL) -m 644
 COPY = cp

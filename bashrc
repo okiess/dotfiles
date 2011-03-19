@@ -107,6 +107,10 @@ if [ -s ~/.rvm/scripts/rvm ] ; then
   rvm use ree
 fi
 
+function update_rvm() {
+  bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head );
+}
+
 # Git & Bash
 function parse_git_branch {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'

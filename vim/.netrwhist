@@ -1,10 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/Users/oliver/Desktop/ripple-testapp'
-let g:netrw_dirhist_2='/Users/oliver/workspace/versioned/apphoshies'
-let g:netrw_dirhist_3='/Users/oliver/workspace/versioned/installcount_site'
-let g:netrw_dirhist_4='/Users/oliver/Desktop/mongomaper_testapp'
-let g:netrw_dirhist_5='/Users/oliver/Desktop/mongomaper_testapp/config'
-let g:netrw_dirhist_6='/Users/oliver/Desktop/mongomaper_testapp/config/initializers'
-let g:netrw_dirhist_7='/Users/oliver/workspace/aha/premio-iphone-app'
-let g:netrw_dirhist_8='/Users/oliver/workspace/aha'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/oliver/workspace/versioned/apphoshies'
+let g:netrw_dirhist_2='/Users/oliver/workspace/versioned/apphoshies/app'
+let g:netrw_dirhist_3='/Users/oliver/workspace/versioned/apphoshies/app/views'
+let g:netrw_dirhist_4='/Users/oliver/workspace/versioned/apphoshies/app/views/users'

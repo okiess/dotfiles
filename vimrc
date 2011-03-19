@@ -62,10 +62,6 @@ if has("autocmd")
 
   augroup END
 
-else
-
-set autoindent		" always set autoindenting on
-
 endif " has("autocmd")
 
 " if has("folding")
@@ -88,9 +84,6 @@ set laststatus=2
 let mapleader = ","
 
 map <Leader>n :Project<CR>
-
-" Edit the README_FOR_APP (makes :R commands work)
-map <Leader>R :e doc/README_FOR_APP<CR>
 
 " Leader shortcuts for Rails commands
 map <Leader>m :Rmodel 
@@ -176,4 +169,3 @@ set smartcase
 " Tags
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
-
