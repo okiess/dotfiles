@@ -1,6 +1,7 @@
+export BASE_DIR="~/Developer"
 export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home"
-export ANT_HOME="~/bin/ant"
-alias dotfiles='cd ~/bin/dotfiles'
+export ANT_HOME="$BASE_DIR/ant"
+alias dotfiles="cd $BASE_DIR/dotfiles"
 
 export LSCOLORS=GxGxcxdxCxegedabagacad
 export CLICOLOR=1
@@ -45,21 +46,6 @@ alias gpso='git push origin master'
 alias gplo='git pull origin master'
 alias gpob='git push origin master && git push backup master'
 
-#PORTS_SYSTEM_TO_USE=macports
-#MACPORTS_PATH=/opt/local/bin:/opt/local/sbin
-#HOMEBREW_PATH=~/bin/homebrew/bin
-#REGULAR_PATH=$ANT_HOME/bin:$EC2_HOME/bin:$PATH
-
-#if [ "$PORTS_SYSTEM_TO_USE" == "macports" ]; then
-#  export PATH=$MACPORTS_PATH:$REGULAR_PATH
-#fi
-
-#if [ "$PORTS_SYSTEM_TO_USE" == "homebrew" ]; then
-#  export PATH=$HOMEBREW_PATH:$REGULAR_PATH
-#fi
-
-#export MANPATH=/opt/local/share/man:~/bin/homebrew/share/man:$MANPATH
-
 export SVN_EDITOR="vim"
 export EDITOR="vim"
 export MYSQL_SOCKET="/tmp/mysql.sock"
@@ -82,11 +68,11 @@ _mategem()
 }
 complete -F _mategem -o dirnames mategem
 
-complete -C ~/bin/dotfiles/rake_completion -o default rake
-complete -C ~/bin/dotfiles/capistrano_completion -o default cap
+complete -C $BASE_DIR/dotfiles/rake_completion -o default rake
+complete -C $BASE_DIR/dotfiles/capistrano_completion -o default cap
 
-if [ -f $HOME/Developer/etc/bash_completion ]; then
-   . $HOME/Developer/etc/bash_completion
+if [ -f $BASE_DIR/etc/bash_completion ]; then
+   . $BASE_DIR/etc/bash_completion
 fi
 
 if [ -f $HOME/.aliases ]; then
