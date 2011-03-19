@@ -1,4 +1,4 @@
-export BASE_DIR="~/Developer"
+export BASE_DIR="/Users/oliver/Developer"
 export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home"
 export ANT_HOME="$BASE_DIR/ant"
 alias dotfiles="cd $BASE_DIR/dotfiles"
