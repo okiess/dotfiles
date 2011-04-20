@@ -87,12 +87,6 @@ if [ -f $HOME/.colors ]; then
   . $HOME/.colors
 fi
 
-# RVM Setup
-if [ -s ~/.rvm/scripts/rvm ] ; then
-  source ~/.rvm/scripts/rvm
-  rvm default
-fi
-
 function update_rvm() {
   bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head );
 }
@@ -131,6 +125,9 @@ else
   alias la='ls -Alh'
   alias l='ls -CF'
 fi
+
+# RVM Setup
+[[ -s "/Users/oliver/.rvm/scripts/rvm" ]] && source "/Users/oliver/.rvm/scripts/rvm"
 
 alias reload='. ~/.bashrc'
 alias edit_profile='vim ~/.bashrc'
