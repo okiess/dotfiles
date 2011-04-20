@@ -90,7 +90,7 @@ fi
 # RVM Setup
 if [ -s ~/.rvm/scripts/rvm ] ; then
   source ~/.rvm/scripts/rvm
-  rvm use ree
+  rvm default
 fi
 
 function update_rvm() {
@@ -102,31 +102,36 @@ function parse_git_branch {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
-# Depends on /opt/local/etc/bash_completion => port install
-export PS1="$CYAN_E\w$YELLOW_E \$(parse_git_branch)$WHITE_E $\[\033[00m\] "
-
-alias reload='. ~/.bashrc'
-alias edit_profile='vim ~/.bashrc'
-
 unamestr=`uname`
 if [[ "$unamestr" == 'Darwin' ]]; then
   ulimit -Sn 1024
-fi
+  export PS1="$CYAN_E\w$YELLOW_E \$(parse_git_branch)$WHITE_E $\[\033[00m\] "
 
-# Cinderella
+  # Cinderella
+  if [[ -d $HOME/Developer ]]; then
+    PATH="$HOME/Developer/bin:$HOME/Developer/share/npm/bin:$HOME/Developer/sbin:$PATH"; export PATH
+    MANPATH="$HOME/share/man:$MANPATH"; export MANPATH
+    CFLAGS="-I$HOME/Developer/include"; export CFLAGS
+    CPPFLAGS="-I$HOME/Developer/include"; export CPPFLAGS
+    CXXFLAGS="-I$HOME/Developer/include"; export CXXFLAGS
+    LDFLAGS="-L$HOME/Developer/lib"; export LDFLAGS
+    NODE_PATH="$HOME/Developer/lib/node"; export NODE_PATH
 
-if [[ -d $HOME/Developer ]]; then
-  PATH="$HOME/Developer/bin:$HOME/Developer/share/npm/bin:$HOME/Developer/sbin:$PATH"; export PATH
-  MANPATH="$HOME/share/man:$MANPATH"; export MANPATH
-  CFLAGS="-I$HOME/Developer/include"; export CFLAGS
-  CPPFLAGS="-I$HOME/Developer/include"; export CPPFLAGS
-  CXXFLAGS="-I$HOME/Developer/include"; export CXXFLAGS
-  LDFLAGS="-L$HOME/Developer/lib"; export LDFLAGS
-  NODE_PATH="$HOME/Developer/lib/node"; export NODE_PATH
+    export CONFIGURE_ARGS="--with-cflags='$CFLAGS' --with-ldflags='$LDFLAGS'"
 
-  export CONFIGURE_ARGS="--with-cflags='$CFLAGS' --with-ldflags='$LDFLAGS'"
-
-  if [[ -d $HOME/Developer/Cellar/python/2.7/bin ]]; then
-    export PATH=$HOME/Developer/Cellar/python/2.7/bin:$PATH
+    if [[ -d $HOME/Developer/Cellar/python/2.7/bin ]]; then
+      export PATH=$HOME/Developer/Cellar/python/2.7/bin:$PATH
+    fi
   fi
+else
+  export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[
+       \033[00m\]\$ '
+  alias ls='ls --color=auto'
+  alias grep='grep --color=auto'
+  alias ll='ls -lh'
+  alias la='ls -Alh'
+  alias l='ls -CF'
 fi
+
+alias reload='. ~/.bashrc'
+alias edit_profile='vim ~/.bashrc'
