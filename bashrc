@@ -38,6 +38,10 @@ function rubymine() {
   open '/Applications/RubyMine 3.0.1.app';
 }
 
+function inhist() {
+  cat $HOME/.bash_history | grep $@
+}
+
 # Git Aliases
 alias gs='git status'
 alias gr='git svn rebase'
