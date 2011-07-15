@@ -10,7 +10,7 @@ alias ll='ls -lhG'
 alias la='ls -lahG'
 
 # Rails Aliases
-function sc () {
+function sc() {
   if [ -f ./script/rails ]; then 
     rails c $@
   else
@@ -18,7 +18,7 @@ function sc () {
   fi
 }
 
-function sd () {
+function sd() {
   if [ -f ./script/rails ]; then
     rails s --debugger $@  
   else
@@ -26,7 +26,7 @@ function sd () {
   fi
 }
 
-function s () {
+function s() {
   if [ -f ./script/rails ]; then 
     rails s $@
   else
