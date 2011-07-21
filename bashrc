@@ -91,10 +91,6 @@ if [ -f $HOME/.colors ]; then
   . $HOME/.colors
 fi
 
-function update_rvm() {
-  bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head );
-}
-
 # Git & Bash
 function parse_git_branch {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
@@ -130,8 +126,11 @@ else
   alias l='ls -CF'
 fi
 
-# RVM Setup
-[[ -s "/Users/oliver/.rvm/scripts/rvm" ]] && source "/Users/oliver/.rvm/scripts/rvm"
+# Lion Fix
+# export CC=/usr/bin/gcc-4.2
 
 alias reload='. ~/.bashrc'
 alias edit_profile='vim ~/.bashrc'
+
+# RVM Setup
+[[ -s "/Users/oliver/.rvm/scripts/rvm" ]] && . "/Users/oliver/.rvm/scripts/rvm"
