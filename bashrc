@@ -43,7 +43,7 @@ function inhist() {
 }
 
 # Git Aliases
-alias gs='git status'
+alias gst='git status'
 alias gr='git svn rebase'
 alias gdc='git svn dcommit'
 alias gpso='git push origin master'
