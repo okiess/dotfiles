@@ -34,12 +34,16 @@ function s() {
   fi
 }
 
-function rubymine() {
-  open '/Applications/RubyMine 3.0.1.app';
+function safari() {
+  open '/Applications/Safari.app';
 }
 
 function inhist() {
   cat $HOME/.bash_history | grep $@
+}
+
+function ssh_ec2() {
+  ssh -i $HOME/.ssh/apphoshies.pem deploy@$@;
 }
 
 # Git Aliases
@@ -131,6 +135,10 @@ fi
 
 alias reload='. ~/.bashrc'
 alias edit_profile='vim ~/.bashrc'
+
+# rbenv Setup
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# eval "$(rbenv init -)"
 
 # RVM Setup
 [[ -s "/Users/oliver/.rvm/scripts/rvm" ]] && . "/Users/oliver/.rvm/scripts/rvm"
