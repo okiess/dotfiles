@@ -105,6 +105,9 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   ulimit -Sn 1024
   export PS1="$CYAN_E\w$YELLOW_E \$(parse_git_branch)$WHITE_E $\[\033[00m\] "
 
+  # Android SDK
+  export PATH=/Users/oliver/Developer/android-sdk-mac/tools:$PATH
+
   # Cinderella
   if [[ -d $HOME/Developer ]]; then
     PATH="$HOME/Developer/bin:$HOME/Developer/share/npm/bin:$HOME/Developer/sbin:$PATH"; export PATH
