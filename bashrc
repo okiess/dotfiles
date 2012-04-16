@@ -145,3 +145,5 @@ alias edit_profile='vim ~/.bashrc'
 
 # RVM Setup
 [[ -s "/Users/oliver/.rvm/scripts/rvm" ]] && . "/Users/oliver/.rvm/scripts/rvm"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
