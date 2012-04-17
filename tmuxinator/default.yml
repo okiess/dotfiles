@@ -1,5 +1,5 @@
 project_name: default
-project_root: ~/
+project_root: /Users/oliver
 tabs:
   - editor:
       layout: main-vertical
