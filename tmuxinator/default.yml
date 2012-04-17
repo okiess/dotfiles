@@ -1,6 +1,3 @@
-# ~/.tmuxinator/development.yml
-# you can make as many tabs as you wish...
-
 project_name: default
 project_root: ~/
 tabs:
