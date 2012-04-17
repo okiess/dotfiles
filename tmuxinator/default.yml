@@ -1,0 +1,12 @@
+# ~/.tmuxinator/development.yml
+# you can make as many tabs as you wish...
+
+project_name: default
+project_root: ~/
+tabs:
+  - editor:
+      layout: main-vertical
+      panes:
+        - #empty
+        - #empty, will just run plain bash
+        - #empty
