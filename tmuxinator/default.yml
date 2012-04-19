@@ -7,3 +7,4 @@ tabs:
         - #empty
         - #empty, will just run plain bash
         - #empty
+  - console:
