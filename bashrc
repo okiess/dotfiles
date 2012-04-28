@@ -9,6 +9,8 @@ alias ls='ls -G'
 alias ll='ls -lhG'
 alias la='ls -lahG'
 
+CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 # Rails Aliases
 function sc() {
   if [ -f ./script/rails ]; then 
@@ -136,6 +138,8 @@ fi
 # Lion Fix
 # export CC=/usr/bin/gcc-4.2
 
+
+
 alias reload='. ~/.bashrc'
 alias edit_profile='vim ~/.bashrc'
 
@@ -148,5 +152,6 @@ alias edit_profile='vim ~/.bashrc'
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+. /Users/oliver/Developer/dotfiles/resty
 
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
