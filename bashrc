@@ -110,18 +110,8 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   # Android SDK
   export PATH=/Users/oliver/Developer/android-sdk-mac/tools:$PATH
 
-  # Cinderella
   if [[ -d $HOME/Developer ]]; then
-    PATH="$HOME/Developer/bin:$HOME/Developer/share/npm/bin:$HOME/Developer/sbin:$PATH"; export PATH
-    MANPATH="$HOME/share/man:$MANPATH"; export MANPATH
-    CFLAGS="-I$HOME/Developer/include"; export CFLAGS
-    CPPFLAGS="-I$HOME/Developer/include"; export CPPFLAGS
-    CXXFLAGS="-I$HOME/Developer/include"; export CXXFLAGS
-    LDFLAGS="-L$HOME/Developer/lib"; export LDFLAGS
-    NODE_PATH="$HOME/Developer/lib/node"; export NODE_PATH
-
-    export CONFIGURE_ARGS="--with-cflags='$CFLAGS' --with-ldflags='$LDFLAGS'"
-
+    PATH="$HOME/Developer/bin:$HOME/Developer/sbin:$PATH"; export PATH
     if [[ -d $HOME/Developer/Cellar/python/2.7/bin ]]; then
       export PATH=$HOME/Developer/Cellar/python/2.7/bin:$PATH
     fi
