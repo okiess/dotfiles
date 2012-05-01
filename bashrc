@@ -1,14 +1,5 @@
-export BASE_DIR="/Users/oliver/Developer"
-export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home"
-export ANT_HOME="$BASE_DIR/ant"
+export BASE_DIR="$HOME/Developer"
 alias dotfiles="cd $BASE_DIR/dotfiles"
-
-export LSCOLORS=GxGxcxdxCxegedabagacad
-export CLICOLOR=1
-alias ls='ls -G'
-alias ll='ls -lhG'
-alias la='ls -lahG'
-
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Rails Aliases
@@ -34,10 +25,6 @@ function s() {
   else
     ./script/server $@
   fi
-}
-
-function safari() {
-  open '/Applications/Safari.app';
 }
 
 function inhist() {
@@ -66,18 +53,6 @@ export RUBY_HEAP_SLOTS_INCREMENT=250000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=50000000
 
-# Textmate Rubygems
-_mategem()
-{
-    local curw
-    COMPREPLY=()
-    curw=${COMP_WORDS[COMP_CWORD]}
-    local gems="$(gem environment gemdir)/gems"
-    COMPREPLY=($(compgen -W '$(ls $gems)' -- $curw));
-    return 0
-}
-complete -F _mategem -o dirnames mategem
-
 complete -C $BASE_DIR/dotfiles/rake_completion -o default rake
 complete -C $BASE_DIR/dotfiles/capistrano_completion -o default cap
 
@@ -99,11 +74,36 @@ fi
 
 # Git & Bash
 function parse_git_branch {
-	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
 unamestr=`uname`
 if [[ "$unamestr" == 'Darwin' ]]; then
+  export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home"
+  export ANT_HOME="$BASE_DIR/ant"
+
+  function safari() {
+    open '/Applications/Safari.app';
+  }
+
+  # Textmate Rubygems
+  _mategem()
+  {
+    local curw
+    COMPREPLY=()
+    curw=${COMP_WORDS[COMP_CWORD]}
+    local gems="$(gem environment gemdir)/gems"
+    COMPREPLY=($(compgen -W '$(ls $gems)' -- $curw));
+    return 0
+  }
+  complete -F _mategem -o dirnames mategem
+
+  export LSCOLORS=GxGxcxdxCxegedabagacad
+  export CLICOLOR=1
+  alias ls='ls -G'
+  alias ll='ls -lhG'
+  alias la='ls -lahG'
+
   ulimit -Sn 1024
   export PS1="$CYAN_E\w$YELLOW_E \$(parse_git_branch)$WHITE_E $\[\033[00m\] "
 
@@ -126,6 +126,9 @@ if [[ "$unamestr" == 'Darwin' ]]; then
       export PATH=$HOME/Developer/Cellar/python/2.7/bin:$PATH
     fi
   fi
+
+  # Lion Fix
+  # export CC=/usr/bin/gcc-4.2
 else
   export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
   alias ls='ls --color=auto'
@@ -135,11 +138,6 @@ else
   alias l='ls -CF'
 fi
 
-# Lion Fix
-# export CC=/usr/bin/gcc-4.2
-
-
-
 alias reload='. ~/.bashrc'
 alias edit_profile='vim ~/.bashrc'
 
@@ -148,10 +146,9 @@ alias edit_profile='vim ~/.bashrc'
 # eval "$(rbenv init -)"
 
 # RVM Setup
-[[ -s "/Users/oliver/.rvm/scripts/rvm" ]] && . "/Users/oliver/.rvm/scripts/rvm"
-
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-. /Users/oliver/Developer/dotfiles/resty
+. $HOME/Developer/dotfiles/resty
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
