@@ -138,8 +138,6 @@ fi
 # Lion Fix
 # export CC=/usr/bin/gcc-4.2
 
-
-
 alias reload='. ~/.bashrc'
 alias edit_profile='vim ~/.bashrc'
 
@@ -153,5 +151,6 @@ alias edit_profile='vim ~/.bashrc'
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 . /Users/oliver/Developer/dotfiles/resty
+rest http://localhost:3000
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
