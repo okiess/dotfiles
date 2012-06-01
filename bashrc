@@ -119,6 +119,12 @@ if [[ "$unamestr" == 'Darwin' ]]; then
 
   # Lion Fix
   # export CC=/usr/bin/gcc-4.2
+  
+  
+  . /Users/oliver/Developer/dotfiles/resty
+  resty http://localhost:3000
+
+  [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 else
   export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
   alias ls='ls --color=auto'
@@ -138,8 +144,3 @@ alias edit_profile='vim ~/.bashrc'
 # RVM Setup
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-. /Users/oliver/Developer/dotfiles/resty
-resty http://localhost:3000
-
-[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
