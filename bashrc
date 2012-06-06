@@ -35,6 +35,10 @@ function ssh_ec2() {
   ssh -i $HOME/.ssh/apphoshies.pem deploy@$@;
 }
 
+function sftp_ec2() {
+  sftp -o IdentityFile=$HOME/.ssh/apphoshies.pem deploy@$@;
+}
+
 # Git Aliases
 alias gst='git status'
 alias gr='git svn rebase'
@@ -119,8 +123,7 @@ if [[ "$unamestr" == 'Darwin' ]]; then
 
   # Lion Fix
   # export CC=/usr/bin/gcc-4.2
-  
-  
+
   . /Users/oliver/Developer/dotfiles/resty
   resty http://localhost:3000
 
