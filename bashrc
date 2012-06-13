@@ -35,6 +35,10 @@ function ssh_ec2() {
   ssh -i $HOME/.ssh/apphoshies.pem deploy@$@;
 }
 
+function ssh_ec2_key() {
+  ssh -i $HOME/.ssh/$1.pem deploy@$2;
+}
+
 function sftp_ec2() {
   sftp -o IdentityFile=$HOME/.ssh/apphoshies.pem deploy@$@;
 }
@@ -46,23 +50,6 @@ alias gdc='git svn dcommit'
 alias gpso='git push origin master'
 alias gplo='git pull origin master'
 alias gpob='git push origin master && git push backup master'
-
-export SVN_EDITOR="vim"
-export EDITOR="vim"
-export MYSQL_SOCKET="/tmp/mysql.sock"
-
-# Ruby Parameters
-export RUBY_HEAP_MIN_SLOTS=500000
-export RUBY_HEAP_SLOTS_INCREMENT=250000
-export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
-export RUBY_GC_MALLOC_LIMIT=50000000
-
-complete -C $BASE_DIR/dotfiles/rake_completion -o default rake
-complete -C $BASE_DIR/dotfiles/capistrano_completion -o default cap
-
-if [ -f $BASE_DIR/etc/bash_completion ]; then
-   . $BASE_DIR/etc/bash_completion
-fi
 
 if [ -f $HOME/.aliases ]; then
   . $HOME/.aliases
@@ -128,6 +115,23 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   resty http://localhost:3000
 
   [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+
+  export SVN_EDITOR="vim"
+  export EDITOR="vim"
+  export MYSQL_SOCKET="/tmp/mysql.sock"
+
+  # Ruby Parameters
+  export RUBY_HEAP_MIN_SLOTS=500000
+  export RUBY_HEAP_SLOTS_INCREMENT=250000
+  export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
+  export RUBY_GC_MALLOC_LIMIT=50000000
+
+  complete -C $BASE_DIR/dotfiles/rake_completion -o default rake
+  complete -C $BASE_DIR/dotfiles/capistrano_completion -o default cap
+
+  if [ -f $BASE_DIR/etc/bash_completion ]; then
+     . $BASE_DIR/etc/bash_completion
+  fi
 else
   export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
   alias ls='ls --color=auto'
