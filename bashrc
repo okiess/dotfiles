@@ -99,7 +99,7 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   export PS1="$CYAN_E\w$YELLOW_E \$(parse_git_branch)$WHITE_E $\[\033[00m\] "
 
   # Android SDK
-  export PATH=/Users/oliver/Developer/android-sdk-mac/tools:$PATH
+  export PATH=/Users/oliver/Developer/android-sdk-mac/tools:/Users/oliver/Developer/android-sdk-mac/platform-tools:$PATH
 
   if [[ -d $HOME/Developer ]]; then
     PATH="$HOME/Developer/bin:$HOME/Developer/sbin:$PATH"; export PATH
@@ -121,10 +121,10 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   export MYSQL_SOCKET="/tmp/mysql.sock"
 
   # Ruby Parameters
-  export RUBY_HEAP_MIN_SLOTS=500000
-  export RUBY_HEAP_SLOTS_INCREMENT=250000
-  export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
-  export RUBY_GC_MALLOC_LIMIT=50000000
+  #export RUBY_HEAP_MIN_SLOTS=500000
+  #export RUBY_HEAP_SLOTS_INCREMENT=250000
+  #export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
+  #export RUBY_GC_MALLOC_LIMIT=50000000
 
   complete -C $BASE_DIR/dotfiles/rake_completion -o default rake
   complete -C $BASE_DIR/dotfiles/capistrano_completion -o default cap
