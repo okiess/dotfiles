@@ -132,6 +132,10 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   if [ -f $BASE_DIR/etc/bash_completion ]; then
      . $BASE_DIR/etc/bash_completion
   fi
+
+  # RVM Setup
+  [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+  PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 else
   export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
   alias ls='ls --color=auto'
@@ -143,11 +147,3 @@ fi
 
 alias reload='. ~/.bashrc'
 alias edit_profile='vim ~/.bashrc'
-
-# rbenv Setup
-# export PATH="$HOME/.rbenv/bin:$PATH"
-# eval "$(rbenv init -)"
-
-# RVM Setup
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
