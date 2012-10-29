@@ -99,7 +99,7 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   export PS1="$CYAN_E\w$YELLOW_E \$(parse_git_branch)$WHITE_E $\[\033[00m\] "
 
   # Android SDK
-  export PATH=/Users/oliver/Developer/android-sdk-mac/tools:/Users/oliver/Developer/android-sdk-mac/platform-tools:$PATH
+  export PATH=/Users/oliver/Developer/android-sdk-macosx/tools:/Users/oliver/Developer/android-sdk-macosx/platform-tools:$PATH
 
   if [[ -d $HOME/Developer ]]; then
     PATH="$HOME/Developer/bin:$HOME/Developer/sbin:$PATH"; export PATH
@@ -147,3 +147,6 @@ fi
 
 alias reload='. ~/.bashrc'
 alias edit_profile='vim ~/.bashrc'
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
