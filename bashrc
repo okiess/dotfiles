@@ -143,6 +143,7 @@ else
   alias ll='ls -lh'
   alias la='ls -Alh'
   alias l='ls -CF'
+  export LC_ALL="de_DE.UTF-8"
 fi
 
 alias reload='. ~/.bashrc'
