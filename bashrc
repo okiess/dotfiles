@@ -108,9 +108,6 @@ if [[ "$unamestr" == 'Darwin' ]]; then
     fi
   fi
 
-  # Lion Fix
-  # export CC=/usr/bin/gcc-4.2
-
   . /Users/oliver/Developer/dotfiles/resty
   resty http://localhost:3000
 
@@ -136,6 +133,11 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   # RVM Setup
   [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
   PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+  export PATH=/Users/oliver/Developer/share/python:$PATH
+
+  ### Added by the Heroku Toolbelt
+  export PATH="/usr/local/heroku/bin:$PATH"
 else
   export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
   alias ls='ls --color=auto'
@@ -143,11 +145,9 @@ else
   alias ll='ls -lh'
   alias la='ls -Alh'
   alias l='ls -CF'
+
   export LC_ALL="de_DE.UTF-8"
 fi
 
 alias reload='. ~/.bashrc'
 alias edit_profile='vim ~/.bashrc'
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
