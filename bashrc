@@ -22,8 +22,10 @@ function sd() {
 function s() {
   if [ -f ./script/rails ]; then 
     rails s $@
-  else
+  elif [ -f ./script/server ]; then
     ./script/server $@
+  else
+    ./bin/rails server $@
   fi
 }
 
@@ -41,6 +43,10 @@ function ssh_ec2_key() {
 
 function sftp_ec2() {
   sftp -o IdentityFile=$HOME/.ssh/apphoshies.pem deploy@$@;
+}
+
+function sftp_ec2_key() {
+  sftp -o IdentityFile=$HOME/.ssh/$1.pem deploy@$2;
 }
 
 # Git Aliases
