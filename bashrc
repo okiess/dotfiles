@@ -6,6 +6,8 @@ CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 function sc() {
   if [ -f ./script/rails ]; then 
     rails c $@
+  elif [ -f ./bin/rails ]; then
+    ./bin/rails console $@
   else
     ./script/console $@
   fi
