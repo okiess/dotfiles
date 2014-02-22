@@ -84,6 +84,10 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   function safari() {
     open '/Applications/Safari.app';
   }
+  
+  function chrome() {
+    open '/Applications/Google Chrome.app';
+  }
 
   # Textmate Rubygems
   _mategem()
@@ -124,6 +128,7 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   export SVN_EDITOR="vim"
   export EDITOR="vim"
   export MYSQL_SOCKET="/tmp/mysql.sock"
+  export ANDROID_HOME="/Users/oliver/Developer/android-sdk-macosx"
 
   # Ruby Parameters
   #export RUBY_HEAP_MIN_SLOTS=500000
@@ -138,14 +143,13 @@ if [[ "$unamestr" == 'Darwin' ]]; then
      . $BASE_DIR/etc/bash_completion
   fi
 
-  # RVM Setup
-  [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-  PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
   export PATH=/Users/oliver/Developer/share/python:$PATH
 
   ### Added by the Heroku Toolbelt
   export PATH="/usr/local/heroku/bin:$PATH"
+
+  # RVM Setup
+  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 else
   export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
   alias ls='ls --color=auto'
