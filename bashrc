@@ -4,7 +4,7 @@ CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Rails Aliases
 function sc() {
-  if [ -f ./script/rails ]; then 
+  if [ -f ./script/rails ]; then
     rails c $@
   elif [ -f ./bin/rails ]; then
     ./bin/rails console $@
@@ -15,14 +15,14 @@ function sc() {
 
 function sd() {
   if [ -f ./script/rails ]; then
-    rails s --debugger $@  
+    rails s --debugger $@
   else
     ./script/server --debugger
   fi
 }
 
 function s() {
-  if [ -f ./script/rails ]; then 
+  if [ -f ./script/rails ]; then
     rails s $@
   elif [ -f ./script/server ]; then
     ./script/server $@
@@ -84,22 +84,10 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   function safari() {
     open '/Applications/Safari.app';
   }
-  
+
   function chrome() {
     open '/Applications/Google Chrome.app';
   }
-
-  # Textmate Rubygems
-  _mategem()
-  {
-    local curw
-    COMPREPLY=()
-    curw=${COMP_WORDS[COMP_CWORD]}
-    local gems="$(gem environment gemdir)/gems"
-    COMPREPLY=($(compgen -W '$(ls $gems)' -- $curw));
-    return 0
-  }
-  complete -F _mategem -o dirnames mategem
 
   export LSCOLORS=GxGxcxdxCxegedabagacad
   export CLICOLOR=1
@@ -110,31 +98,23 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   ulimit -Sn 1024
   export PS1="$CYAN_E\w$YELLOW_E \$(parse_git_branch)$WHITE_E $\[\033[00m\] "
 
-  # Android SDK
-  export PATH=/Users/oliver/Developer/android-sdk-macosx/tools:/Users/oliver/Developer/android-sdk-macosx/platform-tools:$PATH
-
-  if [[ -d $HOME/Developer ]]; then
-    PATH="$HOME/Developer/bin:$HOME/Developer/sbin:$PATH"; export PATH
-    if [[ -d $HOME/Developer/Cellar/python/2.7/bin ]]; then
-      export PATH=$HOME/Developer/Cellar/python/2.7/bin:$PATH
-    fi
+  if [[ -d $BASE_DIR ]]; then
+    PATH="$BASE_DIR/bin:$BASE_DIR/sbin:$PATH"; export PATH
   fi
-
-  . /Users/oliver/Developer/dotfiles/resty
-  resty http://localhost:3000
 
   [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
   export SVN_EDITOR="vim"
   export EDITOR="vim"
   export MYSQL_SOCKET="/tmp/mysql.sock"
-  export ANDROID_HOME="/Users/oliver/Developer/android-sdk-macosx"
 
-  # Ruby Parameters
-  #export RUBY_HEAP_MIN_SLOTS=500000
-  #export RUBY_HEAP_SLOTS_INCREMENT=250000
-  #export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
-  #export RUBY_GC_MALLOC_LIMIT=50000000
+  # Android SDK
+  export ANDROID_HOME="$BASE_DIR/android-sdk-macosx"
+  export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
+
+  # Google Cloud SDK
+  source $BASE_DIR/google-cloud-sdk/path.bash.inc
+  source $BASE_DIR/google-cloud-sdk/completion.bash.inc
 
   complete -C $BASE_DIR/dotfiles/rake_completion -o default rake
   complete -C $BASE_DIR/dotfiles/capistrano_completion -o default cap
@@ -142,8 +122,6 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   if [ -f $BASE_DIR/etc/bash_completion ]; then
      . $BASE_DIR/etc/bash_completion
   fi
-
-  export PATH=/Users/oliver/Developer/share/python:$PATH
 
   ### Added by the Heroku Toolbelt
   export PATH="/usr/local/heroku/bin:$PATH"
