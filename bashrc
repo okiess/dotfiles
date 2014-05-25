@@ -132,6 +132,9 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   ### Added by the Heroku Toolbelt
   export PATH="/usr/local/heroku/bin:$PATH"
 
+  # Ansible
+  export ANSIBLE_HOSTS="$BASE_DIR/ansible_hosts"
+
   # RVM Setup
   [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 else
