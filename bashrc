@@ -138,6 +138,9 @@ if [[ "$unamestr" == 'Darwin' ]]; then
 
   # Ansible
   export ANSIBLE_HOSTS="$BASE_DIR/ansible_hosts"
+  
+  # boot2docker
+  export DOCKER_HOST="tcp://192.168.59.103:2375"
 
   # RVM Setup
   [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
