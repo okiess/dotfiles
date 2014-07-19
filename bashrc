@@ -51,6 +51,10 @@ function sftp_ec2_key() {
   sftp -o IdentityFile=$HOME/.ssh/$1.pem deploy@$2;
 }
 
+function docker-enter() {
+  boot2docker ssh -t "[ -f /var/lib/boot2docker/nsenter ] || docker run --rm -v /var/lib/boot2docker/:/target jpetazzo/nsenter; sudo /var/lib/boot2docker/docker-enter $@";
+}
+
 # Git Aliases
 alias gst='git status'
 alias gr='git svn rebase'
@@ -133,7 +137,7 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   export PATH="/usr/local/heroku/bin:$PATH"
 
   # Ansible
-  # export ANSIBLE_HOSTS="$BASE_DIR/ansible_hosts"
+  export ANSIBLE_HOSTS="$BASE_DIR/ansible_hosts"
 
   # RVM Setup
   [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
