@@ -56,11 +56,8 @@ function docker-enter() {
 }
 
 function docker-killall() { 
-  docker kill $(docker ps -a -q)
-}
-
-function docker-stopall() { 
   docker stop $(docker ps -a -q)
+  docker rm $(docker ps -a -q)
 }
 
 # Git Aliases
