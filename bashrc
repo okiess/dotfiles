@@ -159,6 +159,11 @@ else
   #export LC_ALL="de_DE.UTF-8"
   #export LANG="de_DE.UTF-8"
   #export LANGUAGE="de_DE:de"
+  
+  function docker-enter() {
+     PID=$(docker inspect --format {{.State.Pid}} $1)
+     nsenter --target $PID --mount --uts --ipc --net --pid
+  }
 fi
 
 alias reload='. ~/.bashrc'
