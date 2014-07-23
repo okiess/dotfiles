@@ -55,6 +55,14 @@ function docker-enter() {
   boot2docker ssh -t "[ -f /var/lib/boot2docker/nsenter ] || docker run --rm -v /var/lib/boot2docker/:/target jpetazzo/nsenter; sudo /var/lib/boot2docker/docker-enter $@";
 }
 
+function docker-killall() { 
+  docker kill $(docker ps -a -q)
+}
+
+function docker-stopall() { 
+  docker stop $(docker ps -a -q)
+}
+
 # Git Aliases
 alias gst='git status'
 alias gr='git svn rebase'
