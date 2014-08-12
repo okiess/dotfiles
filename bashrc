@@ -2,64 +2,6 @@ export BASE_DIR="$HOME/Developer"
 alias dotfiles="cd $BASE_DIR/dotfiles"
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-# Rails Aliases
-function sc() {
-  if [ -f ./script/rails ]; then
-    rails c $@
-  elif [ -f ./bin/rails ]; then
-    ./bin/rails console $@
-  else
-    ./script/console $@
-  fi
-}
-
-function sd() {
-  if [ -f ./script/rails ]; then
-    rails s --debugger $@
-  else
-    ./script/server --debugger
-  fi
-}
-
-function s() {
-  if [ -f ./script/rails ]; then
-    rails s $@
-  elif [ -f ./script/server ]; then
-    ./script/server $@
-  else
-    ./bin/rails server $@
-  fi
-}
-
-function inhist() {
-  cat $HOME/.bash_history | grep $@
-}
-
-function ssh_ec2() {
-  ssh -i $HOME/.ssh/apphoshies.pem deploy@$@;
-}
-
-function ssh_ec2_key() {
-  ssh -i $HOME/.ssh/$1.pem deploy@$2;
-}
-
-function sftp_ec2() {
-  sftp -o IdentityFile=$HOME/.ssh/apphoshies.pem deploy@$@;
-}
-
-function sftp_ec2_key() {
-  sftp -o IdentityFile=$HOME/.ssh/$1.pem deploy@$2;
-}
-
-function docker-enter() {
-  boot2docker ssh -t "[ -f /var/lib/boot2docker/nsenter ] || docker run --rm -v /var/lib/boot2docker/:/target jpetazzo/nsenter; sudo /var/lib/boot2docker/docker-enter $@";
-}
-
-function docker-killall() { 
-  docker stop $(docker ps -a -q)
-  docker rm $(docker ps -a -q)
-}
-
 # Git Aliases
 alias gst='git status'
 alias gr='git svn rebase'
@@ -85,10 +27,64 @@ function parse_git_branch {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
+function inhist() {
+  cat $HOME/.bash_history | grep $@
+}
+
+function docker-killall() { 
+  docker stop $(docker ps -a -q)
+  docker rm $(docker ps -a -q)
+}
+
 unamestr=`uname`
 if [[ "$unamestr" == 'Darwin' ]]; then
   export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home"
   export ANT_HOME="$BASE_DIR/ant"
+
+  # Rails Aliases
+  function sc() {
+    if [ -f ./script/rails ]; then
+      rails c $@
+    elif [ -f ./bin/rails ]; then
+      ./bin/rails console $@
+    else
+      ./script/console $@
+    fi
+  }
+
+  function sd() {
+    if [ -f ./script/rails ]; then
+      rails s --debugger $@
+    else
+      ./script/server --debugger
+    fi
+  }
+
+  function s() {
+    if [ -f ./script/rails ]; then
+      rails s $@
+    elif [ -f ./script/server ]; then
+      ./script/server $@
+    else
+      ./bin/rails server $@
+    fi
+  }
+
+  function ssh_ec2() {
+    ssh -i $HOME/.ssh/apphoshies.pem deploy@$@;
+  }
+
+  function ssh_ec2_key() {
+    ssh -i $HOME/.ssh/$1.pem deploy@$2;
+  }
+
+  function sftp_ec2() {
+    sftp -o IdentityFile=$HOME/.ssh/apphoshies.pem deploy@$@;
+  }
+
+  function sftp_ec2_key() {
+    sftp -o IdentityFile=$HOME/.ssh/$1.pem deploy@$2;
+  }
 
   function safari() {
     open '/Applications/Safari.app';
@@ -96,6 +92,10 @@ if [[ "$unamestr" == 'Darwin' ]]; then
 
   function chrome() {
     open '/Applications/Google Chrome.app';
+  }
+  
+  function docker-enter() {
+    boot2docker ssh -t "[ -f /var/lib/boot2docker/nsenter ] || docker run --rm -v /var/lib/boot2docker/:/target jpetazzo/nsenter; sudo /var/lib/boot2docker/docker-enter $@";
   }
 
   export LSCOLORS=GxGxcxdxCxegedabagacad
@@ -143,6 +143,7 @@ if [[ "$unamestr" == 'Darwin' ]]; then
 
   # Ansible
   export ANSIBLE_HOSTS="$BASE_DIR/ansible_hosts"
+  export SSL_CERT_FILE="/Users/oliver/.ssh/cacert.cer"
   
   # boot2docker
   export DOCKER_HOST="tcp://192.168.59.103:2375"
