@@ -144,9 +144,21 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   # Ansible
   export ANSIBLE_HOSTS="$BASE_DIR/ansible_hosts"
   export SSL_CERT_FILE="/Users/oliver/.ssh/cacert.cer"
-  
+
   # boot2docker
-  export DOCKER_HOST="tcp://192.168.59.103:2375"
+  # export DOCKER_HOST="tcp://192.168.59.103:2376"
+  # export DOCKER_CERT_PATH="/Users/oliver/.boot2docker/certs/boot2docker-vm"
+  # export DOCKER_TLS_VERIFY=1
+
+  #if [ -f "${HOME}/.gpg-agent-info" ]; then
+  #  . "${HOME}/.gpg-agent-info"
+  #  export GPG_AGENT_INFO
+  #  export SSH_AUTH_SOCK
+  #fi
+  #export GPG_TTY=$(tty)
+  
+  # n Setup
+  export N_PREFIX=$HOME/Developer
 
   # RVM Setup
   [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
@@ -160,7 +172,7 @@ else
   #export LC_ALL="de_DE.UTF-8"
   #export LANG="de_DE.UTF-8"
   #export LANGUAGE="de_DE:de"
-  
+
   function docker-enter() {
      PID=$(docker inspect --format {{.State.Pid}} $1)
      nsenter --target $PID --mount --uts --ipc --net --pid
