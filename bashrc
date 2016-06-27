@@ -38,8 +38,10 @@ function docker-killall() {
 
 unamestr=`uname`
 if [[ "$unamestr" == 'Darwin' ]]; then
-  export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home"
-  export ANT_HOME="$BASE_DIR/ant"
+  # export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home"
+  export JAVA_HOME=`/usr/libexec/java_home -v 1.7.0_79`
+  export STUDIO_JDK=$JAVA_HOME
+  # export ANT_HOME="$BASE_DIR/ant"
 
   # Rails Aliases
   function sc() {
@@ -146,25 +148,11 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   export ANSIBLE_HOSTS="$BASE_DIR/ansible_hosts"
   export SSL_CERT_FILE="/Users/oliver/.ssh/cacert.cer"
 
-  # boot2docker
-  # export DOCKER_HOST="tcp://192.168.59.103:2376"
-  # export DOCKER_CERT_PATH="/Users/oliver/.boot2docker/certs/boot2docker-vm"
-  # export DOCKER_TLS_VERIFY=1
-
-  #if [ -f "${HOME}/.gpg-agent-info" ]; then
-  #  . "${HOME}/.gpg-agent-info"
-  #  export GPG_AGENT_INFO
-  #  export SSH_AUTH_SOCK
-  #fi
-  #export GPG_TTY=$(tty)
-  
   # n Setup
   export N_PREFIX=$HOME/Developer
 
   # RVM Setup
   [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-  code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 else
   export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
   alias ls='ls --color=auto'
@@ -175,11 +163,6 @@ else
   #export LC_ALL="de_DE.UTF-8"
   #export LANG="de_DE.UTF-8"
   #export LANGUAGE="de_DE:de"
-
-  function docker-enter() {
-     PID=$(docker inspect --format {{.State.Pid}} $1)
-     nsenter --target $PID --mount --uts --ipc --net --pid
-  }
 fi
 
 alias reload='. ~/.bashrc'
