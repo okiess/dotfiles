@@ -3,20 +3,20 @@ require 'rubygems'
 
 puts "loading custom .irbrc..."
 
-gem 'awesome_print'
-require 'ap'
+#gem 'awesome_print'
+#require 'ap'
 
 #gem 'net-http-spy'
 #require 'net-http-spy'
 
-require 'pp'
+#require 'pp'
 
 # Draw ASCII tables
-gem 'hirb'
-require 'hirb'
-require 'hirb/import_object'
-Hirb.enable
-extend Hirb::Console
+#gem 'hirb'
+#require 'hirb'
+#require 'hirb/import_object'
+#Hirb.enable
+#extend Hirb::Console
 
 # 'lp' to show method lookup path
 # require 'looksee/shortcuts'
@@ -41,11 +41,11 @@ IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history"
 # Wirble is a set of enhancements for irb
 # http://pablotron.org/software/wirble/README
 # Implies require 'pp', 'irb/completion', and 'rubygems'
-require 'wirble'
-Wirble.init
+#require 'wirble'
+#Wirble.init
 
 # Enable colored output
-Wirble.colorize
+#Wirble.colorize
 
 # Clear the screen
 def clear

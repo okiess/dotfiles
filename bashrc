@@ -123,12 +123,12 @@ if [[ "$unamestr" == 'Darwin' ]]; then
 
   # Android SDK
   # export ANDROID_HOME="$BASE_DIR/android-sdk-macosx"
-  export ANDROID_HOME="$BASE_DIR/android-sdk-studio"
+  export ANDROID_HOME="$HOME/Library/Android/sdk"
   export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
 
   # Google Cloud SDK
-  source $BASE_DIR/google-cloud-sdk/path.bash.inc
-  source $BASE_DIR/google-cloud-sdk/completion.bash.inc
+  # source $BASE_DIR/google-cloud-sdk/path.bash.inc
+  # source $BASE_DIR/google-cloud-sdk/completion.bash.inc
 
   # Go
   export GOPATH=$HOME/workspace/go
