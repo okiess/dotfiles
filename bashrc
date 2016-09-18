@@ -31,7 +31,7 @@ function inhist() {
   cat $HOME/.bash_history | grep $@
 }
 
-function docker-killall() { 
+function docker-killall() {
   docker stop $(docker ps -a -q)
   docker rm $(docker ps -a -q)
 }
@@ -95,7 +95,7 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   function chrome() {
     open '/Applications/Google Chrome.app';
   }
-  
+
   function docker-enter() {
     boot2docker ssh -t "[ -f /var/lib/boot2docker/nsenter ] || docker run --rm -v /var/lib/boot2docker/:/target jpetazzo/nsenter; sudo /var/lib/boot2docker/docker-enter $@";
   }
@@ -108,7 +108,7 @@ if [[ "$unamestr" == 'Darwin' ]]; then
 
   ulimit -Sn 1024
   export PS1="$CYAN_E\w$YELLOW_E \$(parse_git_branch)$WHITE_E $\[\033[00m\] "
-  
+
   alias fix_context_menu='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user;killall Finder;echo "Open With has been rebuilt, Finder will relaunch"'
 
   if [[ -d $BASE_DIR ]]; then
@@ -125,10 +125,6 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   # export ANDROID_HOME="$BASE_DIR/android-sdk-macosx"
   export ANDROID_HOME="$HOME/Library/Android/sdk"
   export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
-
-  # Google Cloud SDK
-  # source $BASE_DIR/google-cloud-sdk/path.bash.inc
-  # source $BASE_DIR/google-cloud-sdk/completion.bash.inc
 
   # Go
   export GOPATH=$HOME/workspace/go
