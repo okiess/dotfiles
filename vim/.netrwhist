@@ -1,6 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =5
 let g:netrw_dirhist_1='/Users/oliver/workspace/netempire/s-payment-api'
 let g:netrw_dirhist_2='/Users/oliver/workspace/netempire/s-payment-api/app'
 let g:netrw_dirhist_3='/Users/oliver/workspace/netempire/s-payment-api/app/controllers'
 let g:netrw_dirhist_4='/Users/oliver/.gradle'
+let g:netrw_dirhist_5='/Users/oliver/workspace/skopos/basissoftware/config/deploy'

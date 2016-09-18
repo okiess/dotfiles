@@ -1,4 +1,4 @@
-export BASE_DIR="$HOME/Developer"
+export BASE_DIR="$HOME/Documents"
 alias dotfiles="cd $BASE_DIR/dotfiles"
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -147,9 +147,6 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   # Ansible
   export ANSIBLE_HOSTS="$BASE_DIR/ansible_hosts"
   export SSL_CERT_FILE="/Users/oliver/.ssh/cacert.cer"
-
-  # n Setup
-  export N_PREFIX=$HOME/Developer
 
   # RVM Setup
   [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
