@@ -31,17 +31,10 @@ function inhist() {
   cat $HOME/.bash_history | grep $@
 }
 
-function docker-killall() {
-  docker stop $(docker ps -a -q)
-  docker rm $(docker ps -a -q)
-}
-
 unamestr=`uname`
 if [[ "$unamestr" == 'Darwin' ]]; then
-  # export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home"
   export JAVA_HOME=`/usr/libexec/java_home -v 1.7.0_79`
   export STUDIO_JDK=$JAVA_HOME
-  # export ANT_HOME="$BASE_DIR/ant"
 
   # Rails Aliases
   function sc() {
@@ -72,16 +65,8 @@ if [[ "$unamestr" == 'Darwin' ]]; then
     fi
   }
 
-  function ssh_ec2() {
-    ssh -i $HOME/.ssh/apphoshies.pem deploy@$@;
-  }
-
   function ssh_ec2_key() {
     ssh -i $HOME/.ssh/$1.pem deploy@$2;
-  }
-
-  function sftp_ec2() {
-    sftp -o IdentityFile=$HOME/.ssh/apphoshies.pem deploy@$@;
   }
 
   function sftp_ec2_key() {
@@ -96,10 +81,6 @@ if [[ "$unamestr" == 'Darwin' ]]; then
     open '/Applications/Google Chrome.app';
   }
 
-  function docker-enter() {
-    boot2docker ssh -t "[ -f /var/lib/boot2docker/nsenter ] || docker run --rm -v /var/lib/boot2docker/:/target jpetazzo/nsenter; sudo /var/lib/boot2docker/docker-enter $@";
-  }
-
   export LSCOLORS=GxGxcxdxCxegedabagacad
   export CLICOLOR=1
   alias ls='ls -G'
@@ -110,6 +91,12 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   export PS1="$CYAN_E\w$YELLOW_E \$(parse_git_branch)$WHITE_E $\[\033[00m\] "
 
   alias fix_context_menu='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user;killall Finder;echo "Open With has been rebuilt, Finder will relaunch"'
+
+  # Docker Aliases
+  alias d='docker'
+  alias di='docker images'
+  alias dcp='docker-compose up'
+  alias dcd='docker-compose down'
 
   if [[ -d $BASE_DIR ]]; then
     PATH="$BASE_DIR/bin:$BASE_DIR/sbin:$PATH"; export PATH
@@ -126,10 +113,6 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   export ANDROID_HOME="$HOME/Library/Android/sdk"
   export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
 
-  # Go
-  export GOPATH=$HOME/workspace/go
-  export PATH=$GOPATH/bin:$PATH
-
   complete -C $BASE_DIR/dotfiles/rake_completion -o default rake
   complete -C $BASE_DIR/dotfiles/capistrano_completion -o default cap
 
@@ -140,8 +123,6 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   ### Added by the Heroku Toolbelt
   export PATH="/usr/local/heroku/bin:$PATH"
 
-  # Ansible
-  export ANSIBLE_HOSTS="$BASE_DIR/ansible_hosts"
   export SSL_CERT_FILE="/Users/oliver/.ssh/cacert.cer"
 
   # RVM Setup
@@ -153,9 +134,9 @@ else
   alias ll='ls -lh'
   alias la='ls -Alh'
   alias l='ls -CF'
-  #export LC_ALL="de_DE.UTF-8"
-  #export LANG="de_DE.UTF-8"
-  #export LANGUAGE="de_DE:de"
+  export LC_ALL="de_DE.UTF-8"
+  export LANG="de_DE.UTF-8"
+  export LANGUAGE="de_DE:de"
 fi
 
 alias reload='. ~/.bashrc'
