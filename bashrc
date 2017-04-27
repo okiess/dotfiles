@@ -96,7 +96,9 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   alias d='docker'
   alias di='docker images'
   alias dcp='docker-compose up'
+  alias ldcp='TAG="latest" docker-compose up'
   alias dcd='docker-compose down'
+  alias ldcd='TAG="latest" docker-compose down'
 
   if [[ -d $BASE_DIR ]]; then
     PATH="$BASE_DIR/bin:$BASE_DIR/sbin:$PATH"; export PATH
