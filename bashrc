@@ -2,13 +2,11 @@ export BASE_DIR="$HOME/Documents"
 alias dotfiles="cd $BASE_DIR/dotfiles"
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+alias ll='ls -lh'
+alias la='ls -Alh'
+
 # Git Aliases
 alias gst='git status'
-alias gr='git svn rebase'
-alias gdc='git svn dcommit'
-alias gpso='git push origin master'
-alias gplo='git pull origin master'
-alias gpob='git push origin master && git push backup master'
 
 if [ -f $HOME/.aliases ]; then
   . $HOME/.aliases
@@ -83,9 +81,6 @@ if [[ "$unamestr" == 'Darwin' ]]; then
 
   export LSCOLORS=GxGxcxdxCxegedabagacad
   export CLICOLOR=1
-  alias ls='ls -G'
-  alias ll='ls -lhG'
-  alias la='ls -lahG'
 
   ulimit -Sn 1024
   export PS1="$CYAN_E\w$YELLOW_E \$(parse_git_branch)$WHITE_E $\[\033[00m\] "
@@ -95,10 +90,13 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   # Docker Aliases
   alias d='docker'
   alias di='docker images'
-  alias dcp='docker-compose up'
+  alias drmi='docker rmi'
   alias ldcp='TAG="latest" docker-compose up'
-  alias dcd='docker-compose down'
   alias ldcd='TAG="latest" docker-compose down'
+
+  function removeDockerContainers() {
+    docker rm $(docker ps -a -q)
+  }
 
   if [[ -d $BASE_DIR ]]; then
     PATH="$BASE_DIR/bin:$BASE_DIR/sbin:$PATH"; export PATH
@@ -127,18 +125,19 @@ if [[ "$unamestr" == 'Darwin' ]]; then
 
   export SSL_CERT_FILE="/Users/oliver/.ssh/cacert.cer"
 
+  export LC_ALL="de_DE.UTF-8"
+  export LANG="de_DE.UTF-8"
+  export LANGUAGE="de_DE:de"
+
   # RVM Setup
   [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 else
   export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-  alias ls='ls --color=auto'
-  alias grep='grep --color=auto'
-  alias ll='ls -lh'
-  alias la='ls -Alh'
-  alias l='ls -CF'
   export LC_ALL="de_DE.UTF-8"
   export LANG="de_DE.UTF-8"
   export LANGUAGE="de_DE:de"
+  alias ls='ls --color=auto'
+  alias grep='grep --color=auto'
 fi
 
 alias reload='. ~/.bashrc'
