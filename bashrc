@@ -1,6 +1,7 @@
 export BASE_DIR="$HOME/Documents"
 alias dotfiles="cd $BASE_DIR/dotfiles"
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+unamestr=`uname`
 
 if [ -f $BASE_DIR/dotfiles/aliases ]; then
   . $BASE_DIR/dotfiles/aliases
@@ -23,7 +24,6 @@ function inhist() {
   cat $HOME/.bash_history | grep $@
 }
 
-unamestr=`uname`
 if [[ "$unamestr" == 'Darwin' ]]; then
   export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_101`
   export STUDIO_JDK=$JAVA_HOME
@@ -124,13 +124,12 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
   # Rust
-  export PATH="$HOME/.cargo/bin:$PATH"
+  # export PATH="$HOME/.cargo/bin:$PATH"
 
   # Serverless
   [ -f /Users/oliver/Desktop/crypto-tradelog/node_modules/tabtab/.completions/serverless.bash ] && . /Users/oliver/Desktop/crypto-tradelog/node_modules/tabtab/.completions/serverless.bash
   [ -f /Users/oliver/Desktop/crypto-tradelog/node_modules/tabtab/.completions/sls.bash ] && . /Users/oliver/Desktop/crypto-tradelog/node_modules/tabtab/.completions/sls.bash
 
-  # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
   # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
   export PATH="$PATH:$HOME/.rvm/bin"
   [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
