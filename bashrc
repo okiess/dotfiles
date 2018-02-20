@@ -31,7 +31,7 @@ function inhist() {
 
 unamestr=`uname`
 if [[ "$unamestr" == 'Darwin' ]]; then
-  export JAVA_HOME=`/usr/libexec/java_home -v 1.7.0_79`
+  export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_101`
   export STUDIO_JDK=$JAVA_HOME
 
   # Rails Aliases
@@ -93,6 +93,7 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   alias drmi='docker rmi'
   alias ldcp='TAG="latest" docker-compose up'
   alias ldcd='TAG="latest" docker-compose down'
+  alias dc='docker-compose'
 
   function removeDockerContainers() {
     docker rm $(docker ps -a -q)
@@ -129,7 +130,25 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   export LANG="de_DE.UTF-8"
   export LANGUAGE="de_DE:de"
 
-  # RVM Setup
+  # Google Cloud SDK.
+  if [ -f '/Users/oliver/google-cloud-sdk/path.bash.inc' ]; then source '/Users/oliver/google-cloud-sdk/path.bash.inc'; fi
+  if [ -f '/Users/oliver/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/oliver/google-cloud-sdk/completion.bash.inc'; fi
+
+  # NVM
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+  # Rust
+  export PATH="$HOME/.cargo/bin:$PATH"
+
+  # Serverless
+  [ -f /Users/oliver/Desktop/crypto-tradelog/node_modules/tabtab/.completions/serverless.bash ] && . /Users/oliver/Desktop/crypto-tradelog/node_modules/tabtab/.completions/serverless.bash
+  [ -f /Users/oliver/Desktop/crypto-tradelog/node_modules/tabtab/.completions/sls.bash ] && . /Users/oliver/Desktop/crypto-tradelog/node_modules/tabtab/.completions/sls.bash
+
+  # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+  # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+  export PATH="$PATH:$HOME/.rvm/bin"
   [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 else
   export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
@@ -142,5 +161,3 @@ fi
 
 alias reload='. ~/.bashrc'
 alias edit_profile='vim ~/.bashrc'
-
-PATH=$PATH:$HOME/.rvm/bin
