@@ -14,6 +14,14 @@ if [ -f $HOME/.aliases ]; then
   . $HOME/.aliases
 fi
 
+function parse_git_branch {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+function inhist() {
+  cat $HOME/.bash_history | grep $@
+}
+
 if [[ "$unamestr" == 'Darwin' ]]; then
   alias fix_context_menu='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user;killall Finder;echo "Open With has been rebuilt, Finder will relaunch"'
 
@@ -24,6 +32,3 @@ else
   alias ls='ls --color=auto'
   alias grep='grep --color=auto'
 fi
-
-alias reload='. ~/.bashrc'
-alias edit_profile='vim ~/.bashrc'
