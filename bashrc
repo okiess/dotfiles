@@ -2,14 +2,8 @@ export BASE_DIR="$HOME/Documents"
 alias dotfiles="cd $BASE_DIR/dotfiles"
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-alias ll='ls -lh'
-alias la='ls -Alh'
-
-# Git Aliases
-alias gst='git status'
-
-if [ -f $HOME/.aliases ]; then
-  . $HOME/.aliases
+if [ -f $BASE_DIR/dotfiles/aliases ]; then
+  . $BASE_DIR/dotfiles/aliases
 fi
 
 if [ -f $HOME/.project_settings ]; then
@@ -34,7 +28,7 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_101`
   export STUDIO_JDK=$JAVA_HOME
 
-  # Rails Aliases
+  # Rails functions
   function sc() {
     if [ -f ./script/rails ]; then
       rails c $@
@@ -84,16 +78,6 @@ if [[ "$unamestr" == 'Darwin' ]]; then
 
   ulimit -Sn 1024
   export PS1="$CYAN_E\w$YELLOW_E \$(parse_git_branch)$WHITE_E $\[\033[00m\] "
-
-  alias fix_context_menu='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user;killall Finder;echo "Open With has been rebuilt, Finder will relaunch"'
-
-  # Docker Aliases
-  alias d='docker'
-  alias di='docker images'
-  alias drmi='docker rmi'
-  alias ldcp='TAG="latest" docker-compose up'
-  alias ldcd='TAG="latest" docker-compose down'
-  alias dc='docker-compose'
 
   function removeDockerContainers() {
     docker rm $(docker ps -a -q)
@@ -155,9 +139,4 @@ else
   export LC_ALL="de_DE.UTF-8"
   export LANG="de_DE.UTF-8"
   export LANGUAGE="de_DE:de"
-  alias ls='ls --color=auto'
-  alias grep='grep --color=auto'
 fi
-
-alias reload='. ~/.bashrc'
-alias edit_profile='vim ~/.bashrc'

@@ -1,0 +1,29 @@
+alias ll='ls -lh'
+alias la='ls -Alh'
+
+# Git Aliases
+alias gst='git status'
+
+# Docker Aliases
+alias d='docker'
+alias di='docker images'
+alias drmi='docker rmi'
+alias dc='docker-compose'
+
+if [ -f $HOME/.aliases ]; then
+  . $HOME/.aliases
+fi
+
+if [[ "$unamestr" == 'Darwin' ]]; then
+  alias fix_context_menu='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user;killall Finder;echo "Open With has been rebuilt, Finder will relaunch"'
+
+  # Docker Aliases
+  alias ldcp='TAG="latest" docker-compose up'
+  alias ldcd='TAG="latest" docker-compose down'
+else
+  alias ls='ls --color=auto'
+  alias grep='grep --color=auto'
+fi
+
+alias reload='. ~/.bashrc'
+alias edit_profile='vim ~/.bashrc'
