@@ -9,4 +9,4 @@ windows:
         - #empty
         - #empty
   - console:
-  - ssh: ssh-agent bash
+  - ssh:
