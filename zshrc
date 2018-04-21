@@ -122,9 +122,3 @@ fi
 
 alias reload='. ~/.zshrc'
 alias edit_profile='vim ~/.zshrc'
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/oliver/Appplications/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/oliver/Appplications/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/oliver/Appplications/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/oliver/Appplications/google-cloud-sdk/completion.zsh.inc'; fi
