@@ -69,9 +69,8 @@ export EDITOR="vim"
 export MYSQL_SOCKET="/tmp/mysql.sock"
 
 # Android SDK
-# export ANDROID_HOME="$BASE_DIR/android-sdk-macosx"
 export ANDROID_HOME="$HOME/Library/Android/sdk"
-export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
+export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$PATH
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -105,8 +104,12 @@ fi
 
 if [ -n "$BASH_VERSION" ]; then
   # Serverless
-  [ -f /Users/oliver/Desktop/crypto-tradelog/node_modules/tabtab/.completions/serverless.bash ] && . /Users/oliver/Desktop/crypto-tradelog/node_modules/tabtab/.completions/serverless.bash
-  [ -f /Users/oliver/Desktop/crypto-tradelog/node_modules/tabtab/.completions/sls.bash ] && . /Users/oliver/Desktop/crypto-tradelog/node_modules/tabtab/.completions/sls.bash
+  # tabtab source for serverless package
+  # uninstall by removing these lines or running `tabtab uninstall serverless`
+  [[ -f /Users/oliver/.nvm/versions/node/v8.9.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/oliver/.nvm/versions/node/v8.9.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+  # tabtab source for sls package
+  # uninstall by removing these lines or running `tabtab uninstall sls`
+  [[ -f /Users/oliver/.nvm/versions/node/v8.9.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/oliver/.nvm/versions/node/v8.9.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 fi
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
