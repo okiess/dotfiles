@@ -84,12 +84,12 @@ export LANGUAGE="de_DE:de"
 # Google Cloud SDK.
 if [ -n "$BASH_VERSION" ]; then
   if [ -f "$HOME/Applications/google-cloud-sdk/path.bash.inc" ]; then source "$HOME/Applications/google-cloud-sdk/path.bash.inc"; fi
-  if [ -f "$HOME/Applications/google-cloud-sdk/completion.bash.inc" ]; then source "/Users/oliver/google-cloud-sdk/completion.bash.inc"; fi
+  if [ -f "$HOME/Applications/google-cloud-sdk/completion.bash.inc" ]; then source "$HOME/google-cloud-sdk/completion.bash.inc"; fi
 fi
 
 if [ -n "$ZSH_VERSION" ]; then
-  if [ -f '/Users/oliver/Appplications/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/oliver/Appplications/google-cloud-sdk/path.zsh.inc'; fi
-  if [ -f '/Users/oliver/Appplications/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/oliver/Appplications/google-cloud-sdk/completion.zsh.inc'; fi
+  if [ -f '/Users/oliver/Applications/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/oliver/Applications/google-cloud-sdk/path.zsh.inc'; fi
+  if [ -f '/Users/oliver/Applications/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/oliver/Applications/google-cloud-sdk/completion.zsh.inc'; fi
 fi
 
 # NVM
