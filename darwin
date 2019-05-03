@@ -1,4 +1,4 @@
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_101`
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_191`
 export STUDIO_JDK=$JAVA_HOME
 
 # Rails functions
@@ -101,16 +101,6 @@ fi
 
 # Rust
 # export PATH="$HOME/.cargo/bin:$PATH"
-
-if [ -n "$BASH_VERSION" ]; then
-  # Serverless
-  # tabtab source for serverless package
-  # uninstall by removing these lines or running `tabtab uninstall serverless`
-  [[ -f /Users/oliver/.nvm/versions/node/v8.9.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/oliver/.nvm/versions/node/v8.9.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-  # tabtab source for sls package
-  # uninstall by removing these lines or running `tabtab uninstall sls`
-  [[ -f /Users/oliver/.nvm/versions/node/v8.9.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/oliver/.nvm/versions/node/v8.9.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
-fi
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"

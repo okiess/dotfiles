@@ -122,3 +122,13 @@ fi
 
 alias reload='. ~/.zshrc'
 alias edit_profile='vim ~/.zshrc'
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/oliver/workspace/domeniceau/snetch-api/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/oliver/workspace/domeniceau/snetch-api/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/oliver/workspace/domeniceau/snetch-api/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/oliver/workspace/domeniceau/snetch-api/node_modules/tabtab/.completions/sls.zsh
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /Users/oliver/workspace/isure/api-backend/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/oliver/workspace/isure/api-backend/node_modules/tabtab/.completions/slss.zsh
