@@ -1,4 +1,4 @@
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_191`
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_221`
 export STUDIO_JDK=$JAVA_HOME
 
 # Rails functions
