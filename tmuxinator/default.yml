@@ -8,5 +8,5 @@ windows:
         - #empty
         - #empty
         - #empty
+        - #empty
   - console:
-  - ssh:
