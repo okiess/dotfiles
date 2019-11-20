@@ -10,6 +10,8 @@ alias di='docker images'
 alias drmi='docker rmi'
 alias dc='docker-compose'
 
+alias cloudshell='gcloud alpha cloud-shell ssh'
+
 if [ -f $HOME/.aliases ]; then
   . $HOME/.aliases
 fi
