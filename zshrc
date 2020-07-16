@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/oliver/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -54,18 +54,30 @@ ZSH_THEME="robbyrussell"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+unamestr=`uname`
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-  docker
-  tmux
-  tmuxinator
-  rvm
-  npm
-)
+
+if [[ "$unamestr" == 'Darwin' ]]; then
+  plugins=(
+    git
+    docker
+    tmux
+    tmuxinator
+    rvm
+    npm
+  )
+else
+  plugins=(
+    git
+    docker
+    tmux
+    npm
+  )
+fi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -100,7 +112,6 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 export BASE_DIR="$HOME/Documents"
 alias dotfiles="cd $BASE_DIR/dotfiles"
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-unamestr=`uname`
 
 if [ -f $BASE_DIR/dotfiles/aliases ]; then
   . $BASE_DIR/dotfiles/aliases
@@ -122,13 +133,3 @@ fi
 
 alias reload='. ~/.zshrc'
 alias edit_profile='vim ~/.zshrc'
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/oliver/workspace/domeniceau/snetch-api/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/oliver/workspace/domeniceau/snetch-api/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/oliver/workspace/domeniceau/snetch-api/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/oliver/workspace/domeniceau/snetch-api/node_modules/tabtab/.completions/sls.zsh
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /Users/oliver/workspace/isure/api-backend/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/oliver/workspace/isure/api-backend/node_modules/tabtab/.completions/slss.zsh
