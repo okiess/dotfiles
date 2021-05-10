@@ -1,43 +1,6 @@
 export JAVA_HOME=`/usr/libexec/java_home -v 14.0.2`
 export STUDIO_JDK=$JAVA_HOME
 
-# Rails functions
-function sc() {
-  if [ -f ./script/rails ]; then
-    rails c $@
-  elif [ -f ./bin/rails ]; then
-    ./bin/rails console $@
-  else
-    ./script/console $@
-  fi
-}
-
-function sd() {
-  if [ -f ./script/rails ]; then
-    rails s --debugger $@
-  else
-    ./script/server --debugger
-  fi
-}
-
-function s() {
-  if [ -f ./script/rails ]; then
-    rails s $@
-  elif [ -f ./script/server ]; then
-    ./script/server $@
-  else
-    ./bin/rails server $@
-  fi
-}
-
-function ssh_ec2_key() {
-  ssh -i $HOME/.ssh/$1.pem deploy@$2;
-}
-
-function sftp_ec2_key() {
-  sftp -o IdentityFile=$HOME/.ssh/$1.pem deploy@$2;
-}
-
 function safari() {
   open '/Applications/Safari.app';
 }
@@ -100,15 +63,18 @@ if [ -n "$BASH_VERSION" ]; then
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
-# Rust
-# export PATH="$HOME/.cargo/bin:$PATH"
-
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/oliver/workspace/versioned/universal-serverless-backend/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/oliver/workspace/versioned/universal-serverless-backend/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/oliver/workspace/versioned/universal-serverless-backend/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/oliver/workspace/versioned/universal-serverless-backend/node_modules/tabtab/.completions/sls.zsh
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /Users/oliver/workspace/versioned/universal-serverless-backend/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/oliver/workspace/versioned/universal-serverless-backend/node_modules/tabtab/.completions/slss.zsh
 
 GPG_TTY=$(tty)
