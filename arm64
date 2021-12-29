@@ -1,4 +1,6 @@
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-export JAVA_HOME=`/usr/libexec/java_home -v 15.0.2`
+export JAVA_HOME=`/usr/libexec/java_home -v 17.0.1_1`
 export STUDIO_JDK=$JAVA_HOME
+
+. /opt/homebrew/opt/asdf/asdf.sh

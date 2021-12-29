@@ -70,6 +70,8 @@ if [[ "$unamestr" == 'Darwin' ]]; then
     tmuxinator
     rvm
     npm
+    nvm
+    asdf
   )
 else
   plugins=(
@@ -131,6 +133,10 @@ if [[ "$unamestr" == 'Darwin' ]]; then
 
   if [[ "$archstr" == 'arm64' ]]; then
     . $BASE_DIR/dotfiles/arm64
+  fi
+
+  if [[ "$archstr" == 'i386' ]]; then
+    . $BASE_DIR/dotfiles/i386
   fi
 else
   . $BASE_DIR/dotfiles/linux

@@ -67,14 +67,4 @@ fi
 export PATH="$PATH:$HOME/.rvm/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/oliver/workspace/versioned/universal-serverless-backend/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/oliver/workspace/versioned/universal-serverless-backend/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/oliver/workspace/versioned/universal-serverless-backend/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/oliver/workspace/versioned/universal-serverless-backend/node_modules/tabtab/.completions/sls.zsh
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /Users/oliver/workspace/versioned/universal-serverless-backend/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/oliver/workspace/versioned/universal-serverless-backend/node_modules/tabtab/.completions/slss.zsh
-
 GPG_TTY=$(tty)
