@@ -4,3 +4,6 @@ export JAVA_HOME=`/usr/libexec/java_home -v 17.0.1_1`
 export STUDIO_JDK=$JAVA_HOME
 
 . /opt/homebrew/opt/asdf/asdf.sh
+
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
