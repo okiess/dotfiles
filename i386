@@ -1,4 +1,4 @@
-. /usr/local/opt/asdf/libexec/asdf.sh
+. /usr/local/opt/asdf/asdf.sh
 
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
