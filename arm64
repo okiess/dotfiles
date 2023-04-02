@@ -6,6 +6,3 @@ export STUDIO_JDK=$JAVA_HOME
 export AXIS2_HOME=/Users/oliver/axis2-1.8.2
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
