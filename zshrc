@@ -68,7 +68,6 @@ if [[ "$unamestr" == 'Darwin' ]]; then
     docker
     tmux
     tmuxinator
-    rvm
     npm
     nvm
     asdf
