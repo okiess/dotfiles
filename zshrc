@@ -71,6 +71,10 @@ if [[ "$unamestr" == 'Darwin' ]]; then
     npm
     nvm
     asdf
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    fast-syntax-highlighting
+    # zsh-autocomplete
   )
 else
   plugins=(
