@@ -69,8 +69,6 @@ if [[ "$unamestr" == 'Darwin' ]]; then
     tmux
     tmuxinator
     npm
-    nvm
-    asdf
     zsh-autosuggestions
     zsh-syntax-highlighting
     fast-syntax-highlighting
