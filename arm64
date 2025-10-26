@@ -10,6 +10,9 @@ export PATH="/Users/oliver/.codeium/windsurf/bin:$PATH"
 export PATH="$PATH:/Users/oliver/.lmstudio/bin"
 # End of LM Studio CLI section
 
+# Mise
+eval "$(mise activate zsh)"
+
 . "$HOME/.local/bin/env"
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/oliver/.docker/completions $fpath)
@@ -17,8 +20,9 @@ autoload -Uz compinit
 compinit
 # End of Docker CLI completions
 
-# Mise
-eval "$(mise activate zsh)"
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/oliver/.lmstudio/bin"
+# End of LM Studio CLI section
 
 # THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

@@ -1,5 +1,7 @@
 alias ll='ls -lh'
 alias la='ls -Alh'
+alias lt='eza --tree --level=2 --long --icons --git'
+alias lta='lt -a'
 
 # Git Aliases
 alias gst='git status'
@@ -9,6 +11,8 @@ alias d='docker'
 alias di='docker images'
 alias drmi='docker rmi'
 alias dc='docker compose'
+alias dp='docker ps'
+alias dpa='docker ps -a'
 
 if [ -f $HOME/.aliases ]; then
   . $HOME/.aliases
