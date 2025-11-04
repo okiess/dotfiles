@@ -1,0 +1,25 @@
+[include]
+	path = ~/.gitconfig.local
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[mergetool]
+	keepBackup = false
+	prompt = false
+[color]
+	ui = true
+[difftool]
+	prompt = false
+[commit]
+	gpgsign = true
+[core]
+	abbrev = 8
+[init]
+	defaultBranch = main
+[push]
+	default = current
+	autoSetupRemote = true
+[fetch]
+	prune = true
