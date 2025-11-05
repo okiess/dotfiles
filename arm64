@@ -1,7 +1,5 @@
+# Yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-export JAVA_HOME=`/usr/libexec/java_home -v 20.0.1`
-export STUDIO_JDK=$JAVA_HOME
 
 # Added by Windsurf
 export PATH="/Users/oliver/.codeium/windsurf/bin:$PATH"
@@ -9,7 +7,9 @@ export PATH="/Users/oliver/.codeium/windsurf/bin:$PATH"
 # Mise
 eval "$(mise activate zsh)"
 
+# Python uv / uvx
 . "$HOME/.local/bin/env"
+
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/oliver/.docker/completions $fpath)
 autoload -Uz compinit
@@ -20,6 +20,4 @@ compinit
 export PATH="$PATH:/Users/oliver/.lmstudio/bin"
 # End of LM Studio CLI section
 
-# THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+export STUDIO_JDK=$JAVA_HOME

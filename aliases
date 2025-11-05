@@ -26,6 +26,11 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   alias lt='eza --tree --level=2 --long --icons --git'
   alias lta='lt -a'
 
+  alias j8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
+  alias j11='export JAVA_HOME=$(/usr/libexec/java_home -v 11)'
+  alias j25='export JAVA_HOME=$(/usr/libexec/java_home -v 25)'
+  alias jversion='java -version && echo "JAVA_HOME: $JAVA_HOME"'
+
   function parse_git_branch {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
   }
