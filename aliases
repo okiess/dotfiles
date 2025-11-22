@@ -5,6 +5,8 @@ alias la='ls -Alh'
 
 # Git Aliases
 alias gst='git status'
+alias p='git push'
+alias pu='git pull'
 
 # Docker Aliases
 alias d='docker'
