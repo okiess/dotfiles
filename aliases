@@ -27,6 +27,7 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   alias grep='grep --color=auto'
   alias lt='eza --tree --level=2 --long --icons --git'
   alias lta='lt -a'
+  alias n='nvim'
 
   alias j8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
   alias j11='export JAVA_HOME=$(/usr/libexec/java_home -v 11)'
