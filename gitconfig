@@ -23,3 +23,5 @@
 	autoSetupRemote = true
 [fetch]
 	prune = true
+[user]
+	email = kiessler@inceedo.com
