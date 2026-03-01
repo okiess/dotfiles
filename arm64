@@ -21,3 +21,7 @@ export PATH="$PATH:/Users/oliver/.lmstudio/bin"
 # End of LM Studio CLI section
 
 export STUDIO_JDK=$JAVA_HOME
+
+# Added by Obsidian
+export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
+
