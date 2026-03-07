@@ -1,0 +1,44 @@
+# ~/.config/git/config.local
+
+[user]
+  name = Oliver Kiessler
+  email = kiessler@inceedo.com
+
+[core]
+  abbrev = 8
+  editor = nvim
+  autocrlf = input
+
+[init]
+  defaultBranch = main
+
+[commit]
+  gpgsign = true
+
+[push]
+  default = current
+  autoSetupRemote = true
+
+[fetch]
+  prune = true
+
+[merge]
+  conflictstyle = zdiff3
+
+[mergetool]
+  keepBackup = false
+  prompt = false
+
+[rebase]
+  autoSquash = true
+  autoStash = true
+  updateRefs = true
+
+[filter "lfs"]
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+
+[include]
+  path = ~/.gitconfig.local
