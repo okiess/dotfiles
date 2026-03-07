@@ -1,0 +1,7 @@
+# ~/.gitconfig.local
+
+[user]
+  signingkey = F4CBC4F0C4B1021C
+
+[gpg]
+  program = /usr/local/MacGPG2/bin/gpg2
