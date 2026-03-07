@@ -1,0 +1,7 @@
+set -g prefix C-a
+unbind C-Space
+bind C-a send-prefix
+
+bind-key -n MouseDown2Pane run "wl-paste --primary | tmux load-buffer - ; tmux paste-buffer"
+bind-key -T copy-mode MouseDragEnd1Pane send-keys -X copy-pipe "wl-copy --primary"
+bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe "wl-copy --primary"

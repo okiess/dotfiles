@@ -1,0 +1,3 @@
+set -g prefix C-a
+unbind C-Space
+bind C-a send-prefix
