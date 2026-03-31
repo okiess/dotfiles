@@ -1,0 +1,44 @@
+{
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
+  },
+  "terminal": {
+    "font_weight": 400.0,
+    "font_family": ".ZedMono",
+    "shell": "system"
+  },
+  "edit_predictions": {
+    "provider": "copilot"
+  },
+  "tab_size": 2,
+  "toolbar": {
+    "quick_actions": false,
+    "breadcrumbs": false
+  },
+  "ui_font_family": ".ZedMono",
+  "agent_servers": {
+    "opencode": {
+      "type": "registry"
+    }
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "icon_theme": {
+    "mode": "system",
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Macchiato"
+  },
+  "ui_font_size": 14.0,
+  "buffer_font_size": 12.0,
+  "theme": {
+    "mode": "light",
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Macchiato"
+  },
+  "format_on_save": "off",
+  "formatter": "prettier"
+}
