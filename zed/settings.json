@@ -20,7 +20,22 @@
   "ui_font_family": ".ZedMono",
   "agent_servers": {
     "opencode": {
-      "type": "registry"
+      "type": "registry",
+      "env": {
+        "OPENCODE_DEFAULT_MODEL": "opencode-go/kimi-k2.5"
+      }
+    }
+  },
+  "agent": {
+    "default_model": {
+      "effort": "high",
+      "enable_thinking": true,
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-6-latest"
+    },
+    "commit_message_model": {
+      "provider": "anthropic",
+      "model": "claude-haiku-4-5-latest"
     }
   },
   "telemetry": {
@@ -35,7 +50,7 @@
   "ui_font_size": 14.0,
   "buffer_font_size": 12.0,
   "theme": {
-    "mode": "light",
+    "mode": "dark",
     "light": "Catppuccin Latte",
     "dark": "Catppuccin Macchiato"
   },
