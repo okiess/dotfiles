@@ -28,3 +28,8 @@ export LANG="de_DE.UTF-8"
 export LANGUAGE="de_DE:de"
 
 GPG_TTY=$(tty)
+
+# Fix rtk locale bug - rtk ls fails with non-English locales (parses date columns)
+rtk() {
+  LC_ALL=C command rtk "$@"
+}
