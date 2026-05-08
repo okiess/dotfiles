@@ -1,4 +1,19 @@
 {
+  "proxy": "",
+  "project_panel": {
+    "git_status_indicator": true,
+    "entry_spacing": "standard",
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "git_panel": {
+    "dock": "right"
+  },
   "git": {
     "inline_blame": {
       "enabled": false
@@ -19,26 +34,35 @@
   },
   "ui_font_family": ".ZedMono",
   "agent_servers": {
+    "pi-acp": {
+      "type": "registry"
+    },
     "claude-acp": {
       "type": "registry"
     },
     "opencode": {
-      "type": "registry",
-      "env": {
-        "OPENCODE_DEFAULT_MODEL": "opencode-go/kimi-k2.5"
-      }
+      "type": "registry"
     }
   },
   "agent": {
+    "sidebar_side": "right",
+    "dock": "right",
+    "profiles": {
+    },
     "default_model": {
-      "effort": "high",
-      "enable_thinking": true,
-      "provider": "anthropic",
-      "model": "claude-sonnet-4-6-latest"
+      "enable_thinking": false,
+      "provider": "opencode",
+      "model": "go/kimi-k2.6"
     },
     "commit_message_model": {
       "provider": "anthropic",
       "model": "claude-haiku-4-5-latest"
+    }
+  },
+  "language_models": {
+    "opencode": {
+      "show_free_models": false,
+      "show_zen_models": false
     }
   },
   "telemetry": {
@@ -55,7 +79,7 @@
   "theme": {
     "mode": "dark",
     "light": "Catppuccin Latte",
-    "dark": "Catppuccin Macchiato"
+    "dark": "Catppuccin Macchiato - No Italics"
   },
   "format_on_save": "off",
   "formatter": "prettier"
