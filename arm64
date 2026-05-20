@@ -1,9 +1,6 @@
 # Yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-# Added by Windsurf
-export PATH="/Users/oliver/.codeium/windsurf/bin:$PATH"
-
 # Mise
 eval "$(mise activate zsh)"
 
