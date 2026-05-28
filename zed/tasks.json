@@ -7,11 +7,5 @@
       "BRANCH=$(git rev-parse --abbrev-ref HEAD) && if [ \"$BRANCH\" = \"main\" ]; then echo 'Already on main, abort.' && exit 1; fi && git checkout main && git pull && git merge --squash \"$BRANCH\" && git commit -m \"Squash merge $BRANCH into main\""
     ],
     "reveal": "always"
-  },
-  {
-    "label": "lazygit",
-    "command": "bash",
-    "args": [],
-    "reveal": "always"
   }
 ]

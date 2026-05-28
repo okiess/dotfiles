@@ -5,3 +5,6 @@ eval "$(mise activate bash)"
 export PATH="$PATH:/home/oliver/.lmstudio/bin"
 # End of LM Studio CLI section
 
+# Capacitor / Android Studio
+export CAPACITOR_ANDROID_STUDIO_PATH=/opt/android-studio/bin/studio
+

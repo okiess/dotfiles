@@ -1,4 +1,5 @@
 {
+  "diff_view_style": "split",
   "proxy": "",
   "project_panel": {
     "git_status_indicator": true,
@@ -71,15 +72,15 @@
   },
   "icon_theme": {
     "mode": "system",
-    "light": "Catppuccin Latte",
-    "dark": "Catppuccin Macchiato"
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
   },
   "ui_font_size": 14.0,
   "buffer_font_size": 12.0,
   "theme": {
     "mode": "dark",
-    "light": "Catppuccin Latte",
-    "dark": "Catppuccin Macchiato - No Italics"
+    "light": "One Light",
+    "dark": "Tokyoppuccin Storm"
   },
   "format_on_save": "off",
   "formatter": "prettier"
