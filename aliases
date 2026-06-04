@@ -33,9 +33,8 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   alias t='tmux'
   alias pi='mise exec node@24.11.0 -- pi'
 
-  alias j8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
-  alias j11='export JAVA_HOME=$(/usr/libexec/java_home -v 11)'
-  alias j25='export JAVA_HOME=$(/usr/libexec/java_home -v 25)'
+  alias j11='export JAVA_HOME="$(mise where java@corretto-11.0.31.11.1)"'
+  alias j25='export JAVA_HOME="$(mise where java@25)"'
   alias jversion='java -version && echo "JAVA_HOME: $JAVA_HOME"'
 
   function parse_git_branch {
