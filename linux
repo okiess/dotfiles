@@ -8,3 +8,6 @@ export PATH="$PATH:/home/oliver/.lmstudio/bin"
 # Capacitor / Android Studio
 export CAPACITOR_ANDROID_STUDIO_PATH=/opt/android-studio/bin/studio
 
+# Hermes Agent
+alias hermes='docker run -it --rm -e HERMES_UID=1000 -e HERMES_GID=1000 -v ~/.hermes:/opt/data nousresearch/hermes-agent'
+

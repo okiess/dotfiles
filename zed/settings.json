@@ -1,4 +1,7 @@
 {
+  "diagnostics": {
+    "button": false
+  },
   "diff_view_style": "split",
   "proxy": "",
   "project_panel": {
@@ -7,13 +10,15 @@
     "dock": "left"
   },
   "outline_panel": {
+    "button": false,
     "dock": "left"
   },
   "collaboration_panel": {
+    "button": false,
     "dock": "left"
   },
   "git_panel": {
-    "dock": "right"
+    "dock": "left"
   },
   "git": {
     "inline_blame": {
@@ -80,7 +85,7 @@
   "theme": {
     "mode": "dark",
     "light": "One Light",
-    "dark": "Tokyoppuccin Storm"
+    "dark": "Tokyo Night"
   },
   "format_on_save": "off",
   "formatter": "prettier"
