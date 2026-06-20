@@ -22,7 +22,6 @@ function removeDockerContainers() {
 }
 
 # Darwin (macOS) specific aliases and functions
-
 if [[ "$unamestr" == 'Darwin' ]]; then
   alias ls='ls --color=auto'
   alias grep='grep --color=auto'
@@ -44,4 +43,9 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   function inhist() {
     cat $HOME/.bash_history | grep $@
   }
+
+# Linux specific aliases and functions
+elif [[ "$unamestr" == 'Linux' ]]; then
+  # Hermes Agent
+  alias hermes='docker run -it --rm -e HERMES_UID=1000 -e HERMES_GID=1000 -v ~/.hermes:/opt/data nousresearch/hermes-agent'
 fi
