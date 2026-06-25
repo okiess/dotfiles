@@ -23,6 +23,12 @@ export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-t
 
 export SSL_CERT_FILE="/Users/oliver/.ssh/cacert.cer"
 
+# fzf integration (Ctrl-R history, Ctrl-T files, Alt-C cd, ** completions)
+if [[ -n "${HOMEBREW_PREFIX:-}" ]]; then
+  [[ -f "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh" ]] && source "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh"
+  [[ -f "$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh" ]] && source "$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh"
+fi
+
 export LC_ALL="de_DE.UTF-8"
 export LANG="de_DE.UTF-8"
 export LANGUAGE="de_DE:de"
