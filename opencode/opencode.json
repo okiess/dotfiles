@@ -1,0 +1,40 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": false,
+  "provider": {
+    "ollama": {
+      "models": {
+        "qwen3.6:35b": {
+          "_launch": true,
+          "name": "qwen3.6:35b"
+        },
+        "minimax-m3:cloud": {
+          "name": "minimax-m3:cloud"
+        },
+	"glm-5.2:cloud": {
+	  "name": "glm-5.2:cloud"
+	},
+	"kimi-k2.7-code:cloud": {
+	  "name": "kimi-k2.7-code:cloud"
+	},
+	"deepseek-v4-pro:cloud": {
+          "name": "deepseek-v4-pro:cloud"
+	}
+      },
+      "name": "Ollama (local)",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "http://127.0.0.1:11434/v1"
+      }
+    }
+  },
+  "permission": {
+    "external_directory": {
+      "~/workspace/**": "allow",
+      "~/Work/**": "allow",
+      "~/.cargo/**": "allow",
+      "/tmp/**": "allow"
+    }
+  },
+  "lsp": true
+}
