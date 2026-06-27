@@ -1,3 +1,7 @@
+if [ -f  $HOME/.env ]; then
+  . $HOME/.env
+fi
+
 if [ -f $BASE_DIR/dotfiles/aliases ]; then
   . $BASE_DIR/dotfiles/aliases
 fi

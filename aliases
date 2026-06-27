@@ -40,10 +40,6 @@ if [[ "$unamestr" == 'Darwin' ]]; then
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
   }
 
-  function inhist() {
-    cat $HOME/.bash_history | grep $@
-  }
-
 # Linux specific aliases and functions
 elif [[ "$unamestr" == 'Linux' ]]; then
   # Hermes Agent
