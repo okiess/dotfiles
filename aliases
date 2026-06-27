@@ -30,7 +30,6 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   alias n='nvim'
   alias vim='nvim'
   alias t='tmux'
-  alias pi='mise exec node@24.11.0 -- pi'
 
   alias j11='export JAVA_HOME="$(mise where java@corretto-11.0.31.11.1)"'
   alias j25='export JAVA_HOME="$(mise where java@25)"'
