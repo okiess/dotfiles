@@ -1,3 +1,4 @@
 .DS_Store
 vim/backup
 /vim/.netrwhist
+git/gitconfig.local.*

@@ -1,9 +1,5 @@
 # ~/.config/git/config.local
 
-[user]
-  name = Oliver Kiessler
-  email = kiessler@inceedo.com
-
 [core]
   abbrev = 8
   editor = nvim
