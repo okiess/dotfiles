@@ -10,15 +10,15 @@
         "minimax-m3:cloud": {
           "name": "minimax-m3:cloud"
         },
-	"glm-5.2:cloud": {
-	  "name": "glm-5.2:cloud"
-	},
-	"kimi-k2.7-code:cloud": {
-	  "name": "kimi-k2.7-code:cloud"
-	},
-	"deepseek-v4-pro:cloud": {
+        "glm-5.2:cloud": {
+          "name": "glm-5.2:cloud"
+        },
+        "kimi-k2.7-code:cloud": {
+          "name": "kimi-k2.7-code:cloud"
+        },
+        "deepseek-v4-pro:cloud": {
           "name": "deepseek-v4-pro:cloud"
-	}
+        }
       },
       "name": "Ollama (local)",
       "npm": "@ai-sdk/openai-compatible",
