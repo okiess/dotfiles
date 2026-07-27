@@ -12,6 +12,8 @@ if [ -n "$BASH_VERSION" ]; then
   export PS1="$CYAN_E\w$YELLOW_E \$(parse_git_branch)$WHITE_E $\[\033[00m\] "
 fi
 
+PATH="$HOME/bin:$PATH"; export PATH
+
 if [[ -d $BASE_DIR ]]; then
   PATH="$BASE_DIR/bin:$BASE_DIR/sbin:$PATH"; export PATH
 fi
