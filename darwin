@@ -23,8 +23,7 @@ fi
 # Mise
 eval "$(mise activate zsh)"
 
-export SVN_EDITOR="vim"
-export EDITOR="vim"
+export EDITOR="nvim"
 
 # Android SDK
 export ANDROID_HOME="$HOME/Library/Android/sdk"
