@@ -1,0 +1,12 @@
+[keys]
+prefix = "ctrl+a"
+
+[theme]
+name = "tokyo-night"
+auto_switch = false
+
+[ui.toast]
+delivery = "system"
+
+[ui]
+show_agent_labels_on_pane_borders = false
