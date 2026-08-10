@@ -21,6 +21,8 @@ function removeDockerContainers() {
   docker rm $(docker ps -a -q)
 }
 
+alias tasks='mvapi files edit --path scratchspace/short-term-tasks.md'
+
 # Darwin (macOS) specific aliases and functions
 if [[ "$unamestr" == 'Darwin' ]]; then
   alias ls='ls --color=auto'
