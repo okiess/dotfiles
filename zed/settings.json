@@ -1,4 +1,7 @@
 {
+  "global_lsp_settings": {
+    "button": false
+  },
   "diagnostics": {
     "button": false
   },
@@ -18,7 +21,7 @@
     "dock": "left"
   },
   "git_panel": {
-    "dock": "left"
+    "dock": "right"
   },
   "git": {
     "inline_blame": {
@@ -67,7 +70,6 @@
   },
   "language_models": {
     "opencode": {
-      "show_free_models": false,
       "show_zen_models": false
     }
   },
