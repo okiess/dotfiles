@@ -42,8 +42,11 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   }
 
   # Git worktrees (copied from Omarchy's bash fns/worktrees)
+  # Remove any pre-existing aliases (e.g. from oh-my-zsh git plugin) so we can define functions.
+  unalias ga gd 2> /dev/null
+
   # Create a new worktree and branch next to the current repository and jump into it.
-  ga() {
+  function ga {
     if [[ -z "$1" ]]; then
       echo "Usage: ga [branch name]"
       return 1
@@ -59,7 +62,7 @@ if [[ "$unamestr" == 'Darwin' ]]; then
   }
 
   # Remove the current worktree and its branch (asks for confirmation first).
-  gd() {
+  function gd {
     local confirm="y"
     if command -v gum > /dev/null; then
       gum confirm "Remove worktree and branch?" || return 0
