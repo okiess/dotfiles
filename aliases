@@ -41,6 +41,50 @@ if [[ "$unamestr" == 'Darwin' ]]; then
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
   }
 
+  # Git worktrees (copied from Omarchy's bash fns/worktrees)
+  # Create a new worktree and branch next to the current repository and jump into it.
+  ga() {
+    if [[ -z "$1" ]]; then
+      echo "Usage: ga [branch name]"
+      return 1
+    fi
+
+    local branch="$1"
+    local base="$(basename "$PWD")"
+    local wt_path="../${base}--${branch}"
+
+    git worktree add -b "$branch" "$wt_path"
+    command mise trust "$wt_path" 2> /dev/null
+    cd "$wt_path"
+  }
+
+  # Remove the current worktree and its branch (asks for confirmation first).
+  gd() {
+    local confirm="y"
+    if command -v gum > /dev/null; then
+      gum confirm "Remove worktree and branch?" || return 0
+    else
+      read -r -p "Remove worktree and branch? [y/N] " confirm
+      [[ "$confirm" =~ ^[Yy]$ ]] || return 0
+    fi
+
+    local cwd base branch root worktree
+
+    cwd="$(pwd)"
+    worktree="$(basename "$cwd")"
+
+    # split on first `--`
+    root="${worktree%%--*}"
+    branch="${worktree#*--}"
+
+    # Protect against accidentally nuking a non-worktree directory
+    if [[ "$root" != "$worktree" ]]; then
+      cd "../$root"
+      git worktree remove "$cwd" --force || return 1
+      git branch -D "$branch"
+    fi
+  }
+
 # Linux specific aliases and functions
 elif [[ "$unamestr" == 'Linux' ]]; then
   # Hermes Agent
