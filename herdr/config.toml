@@ -3,7 +3,7 @@ onboarding = false
 prefix = "ctrl+a"
 
 [theme]
-name = "tokyo-night"
+name = "one-dark"
 auto_switch = false
 
 [ui.toast]
